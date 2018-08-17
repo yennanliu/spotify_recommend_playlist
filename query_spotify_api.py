@@ -11,7 +11,7 @@ import pandas as pd
 
 def get_recommend_spotify_api():
 	""" will get spotify API access token dynamically later """
-	scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer BQDA5HZO1Szrt4OR7alNZ-KzeGb_wuI5VGDBicL8kbwqj9WPQ9OJzF7aNDCy20_wBr-LOBhrrmt3qFlVOiGx0oVHAJSjPCZGfKEbxuykRSOi4FpxdMw0Qh0USyAkRQp0RepfsExJUAigGoxmH_YaCdddyFygSsbzwQ"})
+	scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer BQBHx866JZF_qSLBZlkThncuo5J5FedbEaAIuIIYLKnbJrj75Z7fF863Ggrhln9u2eNk-fQn94Xn6tgPzYKpWxq3XVjGLQANEPmZKpNa9xEeT-nUQotB7nNJGwOc2SZcoCqRsGlkpfuKlNxPjQ74wgrpv_zEPj9aww"})
 	scrape_json = scrape_data.json()
 	print ('scrape_json  : ' , scrape_json)
 	# transform json to dataframe 
