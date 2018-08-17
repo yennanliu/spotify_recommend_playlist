@@ -71,15 +71,19 @@ def callback():
         "code": str(auth_token),
         "redirect_uri": REDIRECT_URI
     }
-    base64encoded = base64.b64encode("{}:{}".format(CLIENT_ID, CLIENT_SECRET))
+    #base64encoded = base64.b64encode("{}:{}".format(CLIENT_ID, CLIENT_SECRET))
+    """ hack the base64encoded crendential for python 3 fix here """
+    base64encoded = base64.b64encode(( CLIENT_ID + ":").encode('utf-8')).decode('utf-8') + base64.b64encode(CLIENT_SECRET.encode('utf-8')).decode('utf-8')
     headers = {"Authorization": "Basic {}".format(base64encoded)}
     post_request = requests.post(SPOTIFY_TOKEN_URL, data=code_payload, headers=headers)
 
     # Auth Step 5: Tokens are Returned to Application
     response_data = json.loads(post_request.text)
+    print (' ----- response_data : -----', response_data)
     access_token = response_data["access_token"]
     print (' ----- access_token : -----', response_data["access_token"])
     #return response_data["access_token"]
+    return response_data["access_token"]
 
 
 
