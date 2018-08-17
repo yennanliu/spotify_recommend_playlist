@@ -1,22 +1,24 @@
+# python 3 
+
 import json
 from flask import Flask, request, redirect, g, render_template
 import requests
 import base64
 import urllib
+import urllib.parse
 import os
 
 
 """
 
+# Authentication Steps, paramaters, and responses are defined at https://developer.spotify.com/web-api/authorization-guide/
+# Visit this url to see all the steps, parameters, and expected response. 
+
+
 modify from 
 https://github.com/drshrey/spotify-flask-auth-example
 
 """
-
-
-# Authentication Steps, paramaters, and responses are defined at https://developer.spotify.com/web-api/authorization-guide/
-# Visit this url to see all the steps, parameters, and expected response. 
-
 
 
 app = Flask(__name__)
@@ -55,7 +57,7 @@ auth_query_parameters = {
 @app.route("/")
 def index():
     # Auth Step 1: Authorization
-    url_args = "&".join(["{}={}".format(key,urllib.quote(val)) for key,val in auth_query_parameters.iteritems()])
+    url_args = "&".join(["{}={}".format(key,urllib.parse.quote(val)) for key,val in auth_query_parameters.items()])
     auth_url = "{}/?{}".format(SPOTIFY_AUTH_URL, url_args)
     return redirect(auth_url)
 
@@ -84,7 +86,7 @@ def callback():
 
 
 if __name__ == "__main__":
-    app.run(debug=True,port=7777)
+    app.run(debug=True,port=PORT)
 
 
 
