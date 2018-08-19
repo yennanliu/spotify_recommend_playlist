@@ -1,7 +1,8 @@
 # python 3 
 
 import json
-from flask import Flask, request, redirect, g, render_template
+from flask import Flask, request, redirect, g, render_template,session
+from flask_session import Session
 import requests
 import base64
 import urllib
@@ -23,6 +24,11 @@ https://github.com/drshrey/spotify-flask-auth-example
 
 
 app = Flask(__name__)
+app.config.from_object(__name__)
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
+
 
 #  Client Keys
 CLIENT_ID = os.environ['CLIENT_ID']
@@ -60,7 +66,9 @@ auth_query_parameters = {
 
 @app.route("/recommend")
 def get_recommend_spotify():
-    access_token = "BQCne_YqAu5eOGS8Y_ghvFdMjaNEvYDdyOkMUKmEJoAo8LV16DwISNBMKTgzUt4fGhfdTiOXcAylgxO_iotv52yy8eZpVgeXfPXf0EEEThCnqymyuAbAHxQ-nlmAfkp28XIKXvYepNSs6UBaYr93GAEMx60kSXvR5NI6yGOQqzZEZVjLLyA761qsl3ydPUfYea1XEBL84AAoLFw"
+    #access_token = "BQCne_YqAu5eOGS8Y_ghvFdMjaNEvYDdyOkMUKmEJoAo8LV16DwISNBMKTgzUt4fGhfdTiOXcAylgxO_iotv52yy8eZpVgeXfPXf0EEEThCnqymyuAbAHxQ-nlmAfkp28XIKXvYepNSs6UBaYr93GAEMx60kSXvR5NI6yGOQqzZEZVjLLyA761qsl3ydPUfYea1XEBL84AAoLFw"
+    access_token = session["access_token"]
+    print ('session["access_token"] :' , session["access_token"])
     scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer {}".format(access_token)})
     scrape_json = scrape_data.json()
     print ('scrape_json  : ' , scrape_json)
@@ -96,7 +104,7 @@ def callback():
     print (' ----- response_data : -----', response_data)
     access_token = response_data["access_token"]
     print (' ----- access_token : -----', response_data["access_token"])
-    #return response_data["access_token"]
+    session["access_token"] = response_data["access_token"]
     return response_data["access_token"]
 
 
