@@ -7,6 +7,7 @@ import base64
 import urllib
 import urllib.parse
 import os
+import json
 
 
 """
@@ -53,6 +54,19 @@ auth_query_parameters = {
     # "show_dialog": SHOW_DIALOG_str,
     "client_id": CLIENT_ID
 }
+
+
+
+
+@app.route("/recommend")
+def get_recommend_spotify():
+    access_token = "BQCne_YqAu5eOGS8Y_ghvFdMjaNEvYDdyOkMUKmEJoAo8LV16DwISNBMKTgzUt4fGhfdTiOXcAylgxO_iotv52yy8eZpVgeXfPXf0EEEThCnqymyuAbAHxQ-nlmAfkp28XIKXvYepNSs6UBaYr93GAEMx60kSXvR5NI6yGOQqzZEZVjLLyA761qsl3ydPUfYea1XEBL84AAoLFw"
+    scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer {}".format(access_token)})
+    scrape_json = scrape_data.json()
+    print ('scrape_json  : ' , scrape_json)
+    return (json.dumps(scrape_json))
+
+
 
 @app.route("/")
 def index():
