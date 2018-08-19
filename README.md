@@ -6,3 +6,5 @@
 
 ## Ref 
 - https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
+- https://developer.spotify.com/documentation/web-playback-sdk/reference/
+- https://developer.spotify.com/console/get-recommendations 
