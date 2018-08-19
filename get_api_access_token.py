@@ -8,7 +8,6 @@ import base64
 import urllib
 import urllib.parse
 import os
-import json
 
 
 """
@@ -64,12 +63,24 @@ auth_query_parameters = {
 
 
 
-@app.route("/recommend")
-def get_recommend_spotify():
+@app.route("/recommend_V1")
+def get_recommend_spotify_V1():
     #access_token = "BQCne_YqAu5eOGS8Y_ghvFdMjaNEvYDdyOkMUKmEJoAo8LV16DwISNBMKTgzUt4fGhfdTiOXcAylgxO_iotv52yy8eZpVgeXfPXf0EEEThCnqymyuAbAHxQ-nlmAfkp28XIKXvYepNSs6UBaYr93GAEMx60kSXvR5NI6yGOQqzZEZVjLLyA761qsl3ydPUfYea1XEBL84AAoLFw"
     access_token = session["access_token"]
     print ('session["access_token"] :' , session["access_token"])
     scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer {}".format(access_token)})
+    scrape_json = scrape_data.json()
+    print ('scrape_json  : ' , scrape_json)
+    return (json.dumps(scrape_json))
+
+
+@app.route("/recommend_V2")
+def get_recommend_spotify_V2(market='JP',seed_genres='j-pop'):
+    print(' market : ', market)
+    print(' seed_genres : ', seed_genres)
+    access_token = session["access_token"]
+    print ('session["access_token"] :' , session["access_token"])
+    scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market={}&seed_genres={}&min_energy=0.4&min_popularity=50".format(market,seed_genres), headers={"Authorization": "Bearer {}".format(access_token)})
     scrape_json = scrape_data.json()
     print ('scrape_json  : ' , scrape_json)
     return (json.dumps(scrape_json))
