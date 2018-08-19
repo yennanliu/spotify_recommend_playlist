@@ -3,15 +3,19 @@
 
 import requests
 import pandas as pd 
+ 
 
 
 # ----------------------------------------
 # help func 
 
 
-def get_recommend_spotify_api():
+def get_recommend_spotify_api(dynamic_access_token=False):
 	""" will get spotify API access token dynamically later """
-	scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer BQBHx866JZF_qSLBZlkThncuo5J5FedbEaAIuIIYLKnbJrj75Z7fF863Ggrhln9u2eNk-fQn94Xn6tgPzYKpWxq3XVjGLQANEPmZKpNa9xEeT-nUQotB7nNJGwOc2SZcoCqRsGlkpfuKlNxPjQ74wgrpv_zEPj9aww"})
+	if dynamic_access_token==True:
+		pass 
+	else:
+		scrape_data=requests.get("https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_tracks=0c6xIDDpzE81m2q797ordA&min_energy=0.4&min_popularity=50", headers={"Authorization": "Bearer BQCLdpYgXePKDnD1TVckG8Odw-mtjdNw4qU-IScSst0445TiytFMhPdr2ikq_s-uONGtn0KdmIFRpr7NWS5DgdM0bqAQ07GItB6nV7wxEZTH0vjZNzq16kxsFn5q6LJeYUSn5gm8ldtvblLnXVWV7_pvnZCJPhqcx0EvyhLcRTVI1JHFA4Ft54eopIqV_WZFSGB8OrNW76fppsY"})
 	scrape_json = scrape_data.json()
 	print ('scrape_json  : ' , scrape_json)
 	# transform json to dataframe 
