@@ -17,8 +17,8 @@ let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
-const clientId = '2102d6bf57714410a8f50dd1ccadc571';
-const redirectUri = 'https://spotify-web-playback.glitch.me';
+const clientId = '01b263c5ac7d44a8aef137aa1b011ec7';
+const redirectUri = 'http://127.0.0.1:8080/callback/q';
 const scopes = [
   'streaming',
   'user-read-birthdate',
@@ -67,7 +67,7 @@ window.onSpotifyPlayerAPIReady = () => {
 // Play a specified track on the Web Playback SDK's device ID
 function play(device_id) {
   $.ajax({
-   url: "https://api.spotify.com/v1/me/player/play?device_id=" + device_id,
+   url: "http://127.0.0.1:8080/index/play?device_id=" + device_id,
    type: "PUT",
    data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
