@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Spotify Web Playback SDK Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    
+    <!-- Include the Web Playback SDK -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    
+    <!-- Include our Javascript -->
+    <script src="/script.js" defer></script>
+  </head>
+  
+  <body class="container">
+    <h1 class="text-salmon">Spotify Web Playback SDK Template</h1>
+    <h4>This app uses the implicit grant authorization flow to get an access token and initialise the Web Playback SDK. It then uses the Spotify Connect Web API to play a song.</h4>
+    <p>If everything is set up properly, you should hear some music!</p>
+    <img id="current-track"/>
+    <h3 id="current-track-name"></h3>
+    <a class="btn btn-salmon btn-lg" href="https://glitch.com/edit/#!/spotify-web-playback">Get started!</a>
+  </body>
+  
+</html>
