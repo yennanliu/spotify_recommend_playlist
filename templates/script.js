@@ -18,7 +18,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '01b263c5ac7d44a8aef137aa1b011ec7';
-const redirectUri = 'http://127.0.0.1:8080/callback/q';
+const redirectUri = 'http://127.0.0.1:8080/index/';
 const scopes = [
   'streaming',
   'user-read-birthdate',
