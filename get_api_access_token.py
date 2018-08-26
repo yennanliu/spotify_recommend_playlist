@@ -126,6 +126,12 @@ def index_():
     return render_template("index.html")
 
 
+@app.route("/web_playback_sdk_demo/")
+def get_web_playback_sdk_demo():
+    access_token = session["access_token"]
+    return render_template("web_playback_sdk_demo.html",access_token=access_token)
+
+
 
 
 if __name__ == "__main__":
