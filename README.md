@@ -3,6 +3,9 @@
 ## Inspired by 
 - https://github.com/arirawr/nelson
 - https://nelson.glitch.me/#
+- https://glitch.com/~spotify-web-playback
+- https://glitch.com/@spotify
+- https://glitch.com/@a
 
 ## Ref 
 - SDK / API doc. 
