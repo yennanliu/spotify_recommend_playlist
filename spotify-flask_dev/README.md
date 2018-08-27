@@ -1,7 +1,8 @@
-lask / Python Spotify Sample
+Flask / Python Spotify Sample
 ======================================================
 
 Click `"Show"` in the header to see your app live. Updates to your code will instantly deploy and update live.
+(fork from : https://glitch.com/~spotify-flask )
 
 Getting Started
 ------------
