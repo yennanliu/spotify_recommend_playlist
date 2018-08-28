@@ -1,31 +1,63 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
 <!DOCTYPE html>
 <html>
-  
   <head>
-    <title>Spotify Web Playback SDK Template</title>
+    <title>Spotify Flask Sample</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet" />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-    
-    <!-- Include the Web Playback SDK -->
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    
-    <!-- Include our Javascript -->
-    <script src="/script.js" defer></script>
+    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/templates/style.css">
   </head>
-  
-  <body class="container">
-    <h1 class="text-salmon">Spotify Web Playback SDK Template</h1>
-    <h4>This app uses the implicit grant authorization flow to get an access token and initialise the Web Playback SDK. It then uses the Spotify Connect Web API to play a song.</h4>
-    <p>If everything is set up properly, you should hear some music!</p>
-    <img id="current-track"/>
-    <h3 id="current-track-name"></h3>
-    <a class="btn btn-salmon btn-lg" href="https://glitch.com/edit/#!/spotify-web-playback">Get started!</a>
+  <body>
+    <header>
+      <h1>
+        New Releases by Country
+      </h1>
+      <h4>
+        Spotify API example in Python/Flask
+      </h4>
+      <a class="btn btn-sm btn-violet" href="https://glitch.com/edit/#!/spotify-flask">
+        Remix this in Glitch
+      </a>
+    </header>
+
+    <main>
+      <p>Choose a country</p>
+      <form>
+        <div class="input-group col-md-6">
+          <select class="form-control">
+            <option value="SE">Sweden</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="GB">United Kingdom</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+            <option value="JP">Japan</option>
+            <option value="FI">Finland</option>
+            <option value="IS">Iceland</option>
+            <option value="TW">Taiwan</option>
+          </select>
+          <span class="input-group-btn">
+            <button class="btn btn-violet" type="submit">Submit</button>
+          </span>
+        </div>
+      </form>
+      <section class="dreams">
+        <ul id="new-releases" class="sp-container">
+        </ul>
+      </section>
+    </main>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/templates/client.js"></script>
+
   </body>
-  
 </html>
