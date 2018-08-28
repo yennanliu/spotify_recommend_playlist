@@ -30,6 +30,7 @@ def new_releases():
     
     # Send request to the Spotify API
     new_releases = sp.new_releases(country=country, limit=20, offset=0)
+    print ('new_releases : ', new_releases)
     
     # Return the list of new releases
     return jsonify(new_releases)
