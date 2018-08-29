@@ -14,11 +14,17 @@ $ python get_api_access_token.py
 ## Inspired by 
 - https://github.com/arirawr/nelson
 - https://nelson.glitch.me/#
-- https://glitch.com/~spotify-web-playback
-- https://glitch.com/@spotify
-- https://glitch.com/@a
+
 
 ## Ref 
+
+- Projects 
+	- https://medium.com/deep-learning-turkey/build-your-own-spotify-playlist-of-best-playlist-recommendations-fc9ebe92826a
+	- https://glitch.com/~spotify-web-playback
+	- https://glitch.com/@spotify
+	- https://glitch.com/@a
+
+
 - SDK / API doc. 
 	- https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
 	- https://developer.spotify.com/documentation/web-playback-sdk/reference/
