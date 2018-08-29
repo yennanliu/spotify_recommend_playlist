@@ -35,6 +35,32 @@ def new_releases():
     # Return the list of new releases
     return jsonify(new_releases)
 
+
+  
+@app.route('/recommend', methods=['GET'])
+def recommend():
+  
+    # Use the country from the query parameters, if provided
+    if 'country' in request.args:
+        country = request.args['country']
+    else:
+        country = 'SE'
+    
+    # Send request to the Spotify API
+    recommend_ =  sp.recommendations( seed_artists = ['0O0hxUrO2PKxZknken3R24'] ,country=country)
+    print ('recommendation : ', recommend_)
+    
+    # Return the list of new releases
+    #return jsonify(recommendation_['tracks'][0])
+    print ('type : ', type(jsonify(recommend_['tracks'])))
+    return jsonify(recommend_['tracks'])
+
+
+
 if __name__ == '__main__':
     app.run(port=7777)
+
+
+
+
     
