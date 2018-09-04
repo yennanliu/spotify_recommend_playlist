@@ -33,3 +33,25 @@ $(function() {
   });
 
 });
+
+
+function getGenresList() {
+  $('#genres-list').empty();
+  $.get('/genres?token=' + 'BQA5agytEP8cbwYq8jUxVcE3pbTpbPzPijbzV9bO7ZR-f6cVsg9zFS2HVTVsytpBU6Cy4P2MhGIh7QubW-aL4SwQybh6RUD7q-kqFD6RtAUlebHLDJtioudShr8npcGm0WeHuxivReTf5Fyov3VYl0IWCheTwADHEg', function(genres) {
+    genres.forEach(function(genre) {
+      let genreButtonElement = '<label class="btn btn-salmon btn-sm"><input type="checkbox" value="' + genre + '">' + genre + '</label>';
+      $('#genres-list').append(genreButtonElement);
+    });
+  });
+  
+  $('#genres-list').on('change', 'input', function() {
+    if($('#genres-list input:checked').length > 5) {
+      $(this).parent().removeClass("active");
+      this.checked = false;
+      genreLimitAlert("on");
+    }
+    else {
+      genreLimitAlert("off");
+    }
+  });
+}; 
