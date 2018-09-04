@@ -30,8 +30,8 @@ Session(app)
 
 
 #  Client Keys
-CLIENT_ID = os.environ['CLIENT_ID']
-CLIENT_SECRET = os.environ['CLIENT_SECRET'] 
+CLIENT_ID = os.environ['SPOTIPY_CLIENT_ID']
+CLIENT_SECRET = os.environ['SPOTIPY_CLIENT_SECRET'] 
 
 # Spotify URLS
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
