@@ -11,7 +11,7 @@ $(function() {
     //let artist = 'the roots'
     
     // Send a request to our backend (server.py) to get new releases for the currently selected country
-    $.get('/recommendation?' + $.param({artist: artist}), function(recommendation) {
+    $.get('/recommend?' + $.param({artist: artist}), function(recommendation) {
       
       // Loop through each album in the list
       recommendation.forEach(function(recommend) {
