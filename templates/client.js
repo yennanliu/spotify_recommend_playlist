@@ -1,6 +1,12 @@
+// client init config 
+
+// Check hash for token
+
+
+
 // client-side js
 // run by the browser each time your view template is loaded
-
+// get artist input (frontend) and pass data to backend (flask)
 $(function() {
 
   $('form').submit(function(event) {
@@ -34,10 +40,10 @@ $(function() {
 
 });
 
-
+// get song Genres
 function getGenresList() {
   $('#genres-list').empty();
-  $.get('/genres?token=' + 'BQA5agytEP8cbwYq8jUxVcE3pbTpbPzPijbzV9bO7ZR-f6cVsg9zFS2HVTVsytpBU6Cy4P2MhGIh7QubW-aL4SwQybh6RUD7q-kqFD6RtAUlebHLDJtioudShr8npcGm0WeHuxivReTf5Fyov3VYl0IWCheTwADHEg', function(genres) {
+  $.get('/genres?token=' + _token, function(genres) {
     genres.forEach(function(genre) {
       let genreButtonElement = '<label class="btn btn-salmon btn-sm"><input type="checkbox" value="' + genre + '">' + genre + '</label>';
       $('#genres-list').append(genreButtonElement);
