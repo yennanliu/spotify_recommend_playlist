@@ -1,6 +1,37 @@
 // client init config 
 
 // Check hash for token
+const hash = window.location.hash
+.substring(1)
+.split('&')
+.reduce(function (initial, item) {
+  if (item) {
+    var parts = item.split('=');
+    initial[parts[0]] = decodeURIComponent(parts[1]);
+  }
+  return initial;
+}, {});
+window.location.hash = '';
+
+// Set token
+let _token = hash.access_token;
+
+const authEndpoint = 'https://accounts.spotify.com/authorize';
+
+// Replace with your app's client ID, redirect URI and desired scopes
+const clientId = '01b263c5ac7d44a8aef137aa1b011ec7';
+const redirectUri = 'http://127.0.0.1:7777/';
+const scopes = [
+  'streaming',
+  'user-read-birthdate',
+  'user-read-email',
+  'user-read-private',
+  'playlist-modify-public',
+  'user-modify-playback-state'
+];
+
+
+
 
 
 
