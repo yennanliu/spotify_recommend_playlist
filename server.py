@@ -46,7 +46,7 @@ def homepage():
     # return access_token when load the landing page 
     access_token = generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET)
     print ('access_token : ', access_token)
-    return render_template('index.html')
+    return render_template('index.html',access_token=access_token)
 
 
 #------------------------------------
