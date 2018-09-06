@@ -25,7 +25,8 @@ $ python server.py
 ```
 
 ## Tech
-- Backend : Python flask | Frontend : Javascript, HTML, CSS 
+- Backend : Python flask, spotipy 
+- Frontend : Javascript, HTML, CSS 
 
 
 ## Inspired by 
