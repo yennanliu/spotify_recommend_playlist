@@ -6,6 +6,8 @@ from flask import Flask, request, render_template, jsonify
 # Spotify API wrapper, documentation here: http://spotipy.readthedocs.io/en/latest/
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import spotipy.util as util
+from spotipy import oauth2
 # UDF
 from utility import * 
 
@@ -16,9 +18,23 @@ from utility import *
 #------------------------------------
 # config 
 # Authenticate with Spotify using the Client Credentials flow
+
+try:
+    SPOTIPY_CLIENT_ID = os.environ['SPOTIPY_CLIENT_ID']
+    SPOTIPY_CLIENT_SECRET = os.environ['SPOTIPY_CLIENT_SECRET'] 
+except:
+    print (' No API key , please set up  via : ')
+    print (' https://developer.spotify.com/dashboard/applications ')
+
+
+
+
 client_credentials_manager = SpotifyClientCredentials()
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 app = Flask(__name__, static_folder='templates', template_folder='templates')
+
+
+
 
 
 
@@ -27,6 +43,9 @@ app = Flask(__name__, static_folder='templates', template_folder='templates')
 @app.route('/')
 def homepage():
     # Displays homepage
+    # return access_token when load the landing page 
+    access_token = generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET)
+    print ('access_token : ', access_token)
     return render_template('index.html')
 
 

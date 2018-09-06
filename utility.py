@@ -4,7 +4,8 @@ import spotipy
 import requests
 import pandas as pd 
 from spotipy.oauth2 import SpotifyClientCredentials
-
+import spotipy.util as util
+from spotipy import oauth2
 
 
 ''' 
@@ -22,6 +23,19 @@ sp.trace=False
 
 
 # op func 
+
+
+def generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET):
+    """ Generate the token. Please respect these credentials :) """
+    """https://www.programcreek.com/python/example/107939/spotipy.oauth2.SpotifyClientCredentials"""
+    credentials = oauth2.SpotifyClientCredentials(
+        client_id=SPOTIPY_CLIENT_ID,
+        client_secret=SPOTIPY_CLIENT_SECRET)
+    token = credentials.get_access_token()
+    return token 
+
+
+
 def get_artist(name):
     results = sp.search(q='artist:' + name, type='artist')
     items = results['artists']['items']
