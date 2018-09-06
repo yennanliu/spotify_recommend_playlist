@@ -1,6 +1,7 @@
 // client init config 
 
 // Check hash for token
+/*
 const hash = window.location.hash
 .substring(1)
 .split('&')
@@ -31,7 +32,7 @@ const scopes = [
 ];
 
 
-
+*/
 
 
 
@@ -243,3 +244,5 @@ function getGenresList() {
     }
   });
 }; 
+
+*/ 
