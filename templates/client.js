@@ -1,5 +1,4 @@
 // client init config 
-
 // Check hash for token
 /*
 const hash = window.location.hash
@@ -33,42 +32,41 @@ const scopes = [
 
 
 */
-
-
-
 // client-side js
 // run by the browser each time your view template is loaded
 // get artist input (frontend) and pass data to backend (flask)
 $(function() {
 
-  $('form').submit(function(event) {
-    event.preventDefault();
-    
-    $('#recommend').empty();
-    let artist = $('select').val();
-    //let artist = 'the roots'
-    
-    // Send a request to our backend (server.py) to get new releases for the currently selected country
-    $.get('/recommend?' + $.param({artist: artist}), function(recommendation) {
-      
-      // Loop through each album in the list
-      recommendation.forEach(function(recommend) {
+    $('form').submit(function(event) {
+        event.preventDefault();
 
-      console.log('-----------------------')
-      console.log(recommend)
-      console.log('-----------------------')
-        
-        // Use the returned information in the HTML
-        let div = $('<div class="sp-entity-container"><a href="' + recommend.album.external_urls.spotify + 
-                '"><div style="background:url(\'' + recommend.album.images[0].url + 
-                '\')" class="sp-cover" alt="Album cover"></div></a><h3 class="sp-title">' + recommend.name + 
-                '</h3><p class="text-grey-55 sp-by">By ' + recommend.album.artists[0].name + '</p></div>')
-        
-        div.appendTo('#recommend')
-        
-      });
+        $('#recommend').empty();
+        let artist = $('select').val();
+        //let artist = 'the roots'
+
+        // Send a request to our backend (server.py) to get new releases for the currently selected country
+        $.get('/recommend?' + $.param({
+            artist: artist
+        }), function(recommendation) {
+
+            // Loop through each album in the list
+            recommendation.forEach(function(recommend) {
+
+                console.log('-----------------------')
+                console.log(recommend)
+                console.log('-----------------------')
+
+                // Use the returned information in the HTML
+                let div = $('<div class="sp-entity-container"><a href="' + recommend.album.external_urls.spotify +
+                    '"><div style="background:url(\'' + recommend.album.images[0].url +
+                    '\')" class="sp-cover" alt="Album cover"></div></a><h3 class="sp-title">' + recommend.name +
+                    '</h3><p class="text-grey-55 sp-by">By ' + recommend.album.artists[0].name + '</p></div>')
+
+                div.appendTo('#recommend')
+
+            });
+        });
     });
-  });
 
 });
 
@@ -100,152 +98,191 @@ $(function() {
 
 
 function getGenresList() {
-  $('#genres-list').empty();
+    $('#genres-list').empty();
     genres = [
-    "acoustic",
-    "afrobeat",
-    "alt-rock",
-    "alternative",
-    "ambient",
-    "anime",
-    "black-metal",
-    "bluegrass",
-    "blues",
-    "bossanova",
-    "brazil",
-    "breakbeat",
-    "british",
-    "cantopop",
-    "chicago-house",
-    "children",
-    "chill",
-    "classical",
-    "club",
-    "comedy",
-    "country",
-    "dance",
-    "dancehall",
-    "death-metal",
-    "deep-house",
-    "detroit-techno",
-    "disco",
-    "disney",
-    "drum-and-bass",
-    "dub",
-    "dubstep",
-    "edm",
-    "electro",
-    "electronic",
-    "emo",
-    "folk",
-    "forro",
-    "french",
-    "funk",
-    "garage",
-    "german",
-    "gospel",
-    "goth",
-    "grindcore",
-    "groove",
-    "grunge",
-    "guitar",
-    "happy",
-    "hard-rock",
-    "hardcore",
-    "hardstyle",
-    "heavy-metal",
-    "hip-hop",
-    "holidays",
-    "honky-tonk",
-    "house",
-    "idm",
-    "indian",
-    "indie",
-    "indie-pop",
-    "industrial",
-    "iranian",
-    "j-dance",
-    "j-idol",
-    "j-pop",
-    "j-rock",
-    "jazz",
-    "k-pop",
-    "kids",
-    "latin",
-    "latino",
-    "malay",
-    "mandopop",
-    "metal",
-    "metal-misc",
-    "metalcore",
-    "minimal-techno",
-    "movies",
-    "mpb",
-    "new-age",
-    "new-release",
-    "opera",
-    "pagode",
-    "party",
-    "philippines-opm",
-    "piano",
-    "pop",
-    "pop-film",
-    "post-dubstep",
-    "power-pop",
-    "progressive-house",
-    "psych-rock",
-    "punk",
-    "punk-rock",
-    "r-n-b",
-    "rainy-day",
-    "reggae",
-    "reggaeton",
-    "road-trip",
-    "rock",
-    "rock-n-roll",
-    "rockabilly",
-    "romance",
-    "sad",
-    "salsa",
-    "samba",
-    "sertanejo",
-    "show-tunes",
-    "singer-songwriter",
-    "ska",
-    "sleep",
-    "songwriter",
-    "soul",
-    "soundtracks",
-    "spanish",
-    "study",
-    "summer",
-    "swedish",
-    "synth-pop",
-    "tango",
-    "techno",
-    "trance",
-    "trip-hop",
-    "turkish",
-    "work-out",
-    "world-music"
+        "acoustic",
+        "afrobeat",
+        "alt-rock",
+        "alternative",
+        "ambient",
+        "anime",
+        "black-metal",
+        "bluegrass",
+        "blues",
+        "bossanova",
+        "brazil",
+        "breakbeat",
+        "british",
+        "cantopop",
+        "chicago-house",
+        "children",
+        "chill",
+        "classical",
+        "club",
+        "comedy",
+        "country",
+        "dance",
+        "dancehall",
+        "death-metal",
+        "deep-house",
+        "detroit-techno",
+        "disco",
+        "disney",
+        "drum-and-bass",
+        "dub",
+        "dubstep",
+        "edm",
+        "electro",
+        "electronic",
+        "emo",
+        "folk",
+        "forro",
+        "french",
+        "funk",
+        "garage",
+        "german",
+        "gospel",
+        "goth",
+        "grindcore",
+        "groove",
+        "grunge",
+        "guitar",
+        "happy",
+        "hard-rock",
+        "hardcore",
+        "hardstyle",
+        "heavy-metal",
+        "hip-hop",
+        "holidays",
+        "honky-tonk",
+        "house",
+        "idm",
+        "indian",
+        "indie",
+        "indie-pop",
+        "industrial",
+        "iranian",
+        "j-dance",
+        "j-idol",
+        "j-pop",
+        "j-rock",
+        "jazz",
+        "k-pop",
+        "kids",
+        "latin",
+        "latino",
+        "malay",
+        "mandopop",
+        "metal",
+        "metal-misc",
+        "metalcore",
+        "minimal-techno",
+        "movies",
+        "mpb",
+        "new-age",
+        "new-release",
+        "opera",
+        "pagode",
+        "party",
+        "philippines-opm",
+        "piano",
+        "pop",
+        "pop-film",
+        "post-dubstep",
+        "power-pop",
+        "progressive-house",
+        "psych-rock",
+        "punk",
+        "punk-rock",
+        "r-n-b",
+        "rainy-day",
+        "reggae",
+        "reggaeton",
+        "road-trip",
+        "rock",
+        "rock-n-roll",
+        "rockabilly",
+        "romance",
+        "sad",
+        "salsa",
+        "samba",
+        "sertanejo",
+        "show-tunes",
+        "singer-songwriter",
+        "ska",
+        "sleep",
+        "songwriter",
+        "soul",
+        "soundtracks",
+        "spanish",
+        "study",
+        "summer",
+        "swedish",
+        "synth-pop",
+        "tango",
+        "techno",
+        "trance",
+        "trip-hop",
+        "turkish",
+        "work-out",
+        "world-music"
     ]
     console.log(genres)
     genres.forEach(function(genre) {
-      console.log(' in the func ')
-      let genreButtonElement = '<label class="btn btn-salmon btn-sm"><input type="checkbox" value="' + genre + '">' + genre + '</label>';
-      $('#genres-list').append(genreButtonElement);
+        console.log(' in the func ')
+        let genreButtonElement = '<label class="btn btn-salmon btn-sm"><input type="checkbox" value="' + genre + '">' + genre + '</label>';
+        $('#genres-list').append(genreButtonElement);
     });
-  
-  $('#genres-list').on('change', 'input', function() {
-    if($('#genres-list input:checked').length > 5) {
-      $(this).parent().removeClass("active");
-      this.checked = false;
-      genreLimitAlert("on");
-    }
-    else {
-      genreLimitAlert("off");
-    }
-  });
-}; 
+
+    $('#genres-list').on('change', 'input', function() {
+        if ($('#genres-list input:checked').length > 5) {
+            $(this).parent().removeClass("active");
+            this.checked = false;
+            genreLimitAlert("on");
+        } else {
+            genreLimitAlert("off");
+        }
+    });
+};
 
 
+
+// get recommendation
+
+function getRecommendations() {
+
+    // Get selected genres
+    let genres = [];
+    $('#genres-list input:checked').each(function() {
+        genres.push($(this).val());
+    });
+    let genresString = genres.join();
+    localStorage.setItem('currentNelsonGenres', genresString);
+    $('#current-genres').text(genresString);
+
+    // Get slider values
+    let audioFeatures = getSliderValues();
+    localStorage.setItem('currentNelsonFeatures', JSON.stringify(audioFeatures));
+
+    // Send the request
+    $.get('/recommendations?seed_genres=' + genresString + '&' + $.param(audioFeatures) + '&token=' + _token, function(data) {
+        $('#tracks').empty();
+        let trackIds = [];
+        let trackUris = [];
+        if (data.tracks) {
+            if (data.tracks.length > 0) {
+                data.tracks.forEach(function(track) {
+                    trackIds.push(track.id);
+                    trackUris.push(track.uri);
+                });
+                localStorage.setItem('currentNelsonTracks', trackUris.join());
+                renderTracks(trackIds);
+                play(trackUris.join());
+            } else {
+                $('#tracks').append('<h2>No results. Try a broader search.</h2>')
+            }
+        } else {
+            $('#tracks').append('<h2>No results. Select some genres first.</h2>')
+        }
+    });
+}
