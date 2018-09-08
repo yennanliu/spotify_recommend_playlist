@@ -32,27 +32,26 @@
          </a>
       </header>
       <main>
-         <div class="modal-dialog">
+        <div class="inline space-after">
+          <h3>Current genres: <span id="current-genres"></span></h3>
+          <button class="btn btn-aubergine btn-sm" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
+        </div>
+        <div class="modal fade" id="genre-select">
+          <div class="modal-dialog">
             <div class="modal-content">
-               <div class="modal-header">
-                  <div class="inline space-after">
-                     <h3>Current genres: <span id="current-genres"></span></h3>
-                     <button class="btn btn-aubergine btn-sm" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
-                  </div>
-                  <div id="genres-list" data-toggle="buttons">
-                     <label class="btn btn-salmon btn-sm" style="display:none">
-                        <!-- Buttons for each genre to be appended here -->
-                     </label>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-aubergine" data-dismiss="modal" onclick="getRecommendations();">Okay!</button>
-                  </div>
-               </div>
-               <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-         </div>
-         <!-- /.modal --> 
+              <div id="genres-list" data-toggle="buttons">
+                <label class="btn btn-salmon btn-sm" style="display:none">
+                  <!-- Buttons for each genre to be appended here -->
+                </label>
+              </div>
+
+              <div class="modal-footer">
+              <button type="button" class="btn btn-aubergine" data-dismiss="modal" onclick="getRecommendations();">Okay!</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->   
+
          <p>Choose an artist</p>
          <form>
             <div class="input-group col-md-6">
