@@ -95,7 +95,8 @@ $(function() {
   });
 }; 
 
-/*
+*/
+
 
 
 function getGenresList() {
@@ -228,7 +229,9 @@ function getGenresList() {
     "work-out",
     "world-music"
     ]
+    console.log(genres)
     genres.forEach(function(genre) {
+      console.log(' in the func ')
       let genreButtonElement = '<label class="btn btn-salmon btn-sm"><input type="checkbox" value="' + genre + '">' + genre + '</label>';
       $('#genres-list').append(genreButtonElement);
     });
@@ -245,4 +248,4 @@ function getGenresList() {
   });
 }; 
 
-*/ 
+

@@ -18,7 +18,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.js"></script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <script> var token__ = '{{ access_token }}';</script>  
+    <!-- <script> var token__ = '{{ access_token }}';</script>   --> 
 
   </head>
   <body>
@@ -39,6 +39,12 @@
           <h3>Current genres: <span id="current-genres"></span></h3>
           <button class="btn btn-aubergine btn-sm" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
         </div>
+
+    <div id="genres-list" data-toggle="buttons">
+      <label class="btn btn-salmon btn-sm" style="display:none">
+        <!-- Buttons for each genre to be appended here -->
+      </label>
+    </div>
 
       <p>Choose an artist</p>
       <form>
