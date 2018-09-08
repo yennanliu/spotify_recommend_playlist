@@ -1,94 +1,84 @@
 <!-- This is a static file -->
 <!-- served from your routes in server.js -->
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Spotify Flask Sample</title>
-    <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/templates/style.css">
-    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.js"></script>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <!-- <script> var token__ = '{{ access_token }}';</script>   --> 
-
-  </head>
-  <body>
-    <header>
-      <h1>
-        Recommend by artist
-      </h1>
-      <h4>
-        Python/Flask playlist via Spotify API 
-      </h4>
-      <a class="btn btn-sm btn-violet" href="https://glitch.com/edit/#!/spotify-flask">
-        Remix this in Glitch
-      </a>
-    </header>
-
-    <main>
-
-      <div class="modal-dialog">
-      <div class="modal-content">
-      <div class="modal-header">
-
-    <div class="inline space-after">
-          <h3>Current genres: <span id="current-genres"></span></h3>
-          <button class="btn btn-aubergine btn-sm" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
-        </div>
-
-    <div id="genres-list" data-toggle="buttons">
-      <label class="btn btn-salmon btn-sm" style="display:none">
-        <!-- Buttons for each genre to be appended here -->
-      </label>
-    </div>
-
-  <div class="modal-footer">
-  <button type="button" class="btn btn-aubergine" data-dismiss="modal" onclick="getRecommendations();">Okay!</button>
-  </div>
-
-          
-     </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal --> 
-     
-
-      <p>Choose an artist</p>
-      <form>
-        <div class="input-group col-md-6">
-          <select class="form-control">
-            <option value="the roots">the roots</option>
-            <option value="daft punk">daft punk</option>
-            <option value="common">common</option>
-            <option value="dj deckstream">dj deckstream</option>
-            <option value="freeTempo">free tempo</option>
-            <option value="Honne">Honne</option>
-          </select>
-          <span class="input-group-btn">
-            <button class="btn btn-violet" type="submit">Submit</button>
-          </span>
-        </div>
-      </form>
-      <section class="dreams">
-        <!--<ul id="new-releases" class="sp-container"> -->
-        <ul id="recommend" class="sp-container">
-        </ul>
-      </section>
-    </main>
-
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/templates/client.js"></script>
-
-  </body>
+   <head>
+      <title>Spotify Flask Sample</title>
+      <meta name="description" content="A cool thing made with Glitch">
+      <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/templates/style.css">
+      <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.js"></script>
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <!-- <script> var token__ = '{{ access_token }}';</script>   --> 
+   </head>
+   <body>
+      <header>
+         <h1>
+            Recommend by artist
+         </h1>
+         <h4>
+            Python/Flask playlist via Spotify API 
+         </h4>
+         <a class="btn btn-sm btn-violet" href="https://glitch.com/edit/#!/spotify-flask">
+         Remix this in Glitch
+         </a>
+      </header>
+      <main>
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <div class="inline space-after">
+                     <h3>Current genres: <span id="current-genres"></span></h3>
+                     <button class="btn btn-aubergine btn-sm" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
+                  </div>
+                  <div id="genres-list" data-toggle="buttons">
+                     <label class="btn btn-salmon btn-sm" style="display:none">
+                        <!-- Buttons for each genre to be appended here -->
+                     </label>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-aubergine" data-dismiss="modal" onclick="getRecommendations();">Okay!</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal --> 
+         <p>Choose an artist</p>
+         <form>
+            <div class="input-group col-md-6">
+               <select class="form-control">
+                  <option value="the roots">the roots</option>
+                  <option value="daft punk">daft punk</option>
+                  <option value="common">common</option>
+                  <option value="dj deckstream">dj deckstream</option>
+                  <option value="freeTempo">free tempo</option>
+                  <option value="Honne">Honne</option>
+               </select>
+               <span class="input-group-btn">
+               <button class="btn btn-violet" type="submit">Submit</button>
+               </span>
+            </div>
+         </form>
+         <section class="dreams">
+            <!--<ul id="new-releases" class="sp-container"> -->
+            <ul id="recommend" class="sp-container">
+            </ul>
+         </section>
+      </main>
+      <!-- Your web-app is https, so your scripts need to be too -->
+      <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+         integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+         crossorigin="anonymous"></script>
+      <script src="/templates/client.js"></script>
+   </body>
 </html>
