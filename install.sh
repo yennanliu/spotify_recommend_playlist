@@ -9,9 +9,10 @@ echo '#####################'
 # check if is python 3 
 echo '1) Check python version ... '
 echo ''
+# https://stackoverflow.com/questions/6141581/detect-python-version-in-shell-script
 python_version=$(python -V 2>&1 | cut -d':' -f 1  | cut -d'.' -f 1)
-
 echo 'Python version: ' $python_version
+
 if [ "$python_version" = "Python 3" ] ; then 
 	echo "you are using python3"
 else
