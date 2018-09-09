@@ -5,7 +5,8 @@
 ## Quick start 
 
 - Step 1 
-	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET (you MUST have the spotify Premium account )
+	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
+	- (you MUST have the spotify Premium account )
 	- https://developer.spotify.com/dashboard/applications
 - Step 2 
 	- Create an APP at developer page with created SPOTIPY_CLIENT_ID
@@ -16,8 +17,9 @@
 
 ```bash 
 
-$ git clone https://github.com/yennanliu/spotify_recommend_playlist.git
+$ cd ~ && git clone https://github.com/yennanliu/spotify_recommend_playlist.git
 $ cd ~ && cd spotify_recommend_playlist
+$ bash install.sh 
 $ export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
 $ export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
 $ python server.py 
@@ -25,7 +27,7 @@ $ python server.py
 ```
 
 ## Tech
-- Backend : Python flask, spotipy 
+- Backend : Python3 flask, spotipy 
 - Frontend : Javascript, HTML, CSS 
 
 
@@ -41,7 +43,6 @@ $ python server.py
 	- https://glitch.com/~spotify-web-playback
 	- https://glitch.com/@spotify
 	- https://glitch.com/@a
-
 
 - SDK / API doc. 
 	- https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
