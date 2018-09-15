@@ -35,9 +35,6 @@ app = Flask(__name__, static_folder='templates', template_folder='templates')
 
 
 
-
-
-
 #------------------------------------
 
 @app.route('/')
@@ -75,7 +72,6 @@ def recommend():
     print (' request.args : ' , request.args)
     print (' request : ' , request)
     # Use the country from the query parameters, if provided
-
     if 'artist' in request.args:
         artist_ = request.args['artist']
     else:
@@ -85,11 +81,14 @@ def recommend():
     print ('artist_ : ', artist_)
     print ('artist_id : ', artist_id)
     
-    # Send request to the Spotify API
-    #recommend_ =  sp.recommendations( seed_artists = [artist_id] ,country=country)
-    recommend_ =  sp.recommendations(seed_artists = [artist_id])
-    #print ('recommendation : ', recommend_)
-    
+    """
+    Send request to the Spotify API
+    https://spotipy.readthedocs.io/en/latest/
+    https://github.com/plamere/spotipy/blob/4c2c1d763a3653aa225c4af848409ec31286a6bf/spotipy/client.py#L797
+    recommend_ = sp.recommendations(seed_artists=None, seed_genres=None, seed_tracks=None, limit=20, country=None, **kwargs)
+    """
+    recommend_ =  sp.recommendations(seed_artists = [artist_id],country='FR',limit=100)
+    #print ('recommendation : ', recommend_)  
     # Return the list of new releases
     #return jsonify(recommendation_['tracks'][0])
     print ('type : ', type(jsonify(recommend_['tracks'])))
