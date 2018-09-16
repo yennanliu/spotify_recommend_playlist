@@ -87,7 +87,7 @@ def recommend():
     https://github.com/plamere/spotipy/blob/4c2c1d763a3653aa225c4af848409ec31286a6bf/spotipy/client.py#L797
     recommend_ = sp.recommendations(seed_artists=None, seed_genres=None, seed_tracks=None, limit=20, country=None, **kwargs)
     """
-    recommend_ =  sp.recommendations(seed_artists = [artist_id],country='FR',limit=100)
+    recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=100)
     #print ('recommendation : ', recommend_)  
     # Return the list of new releases
     #return jsonify(recommendation_['tracks'][0])
