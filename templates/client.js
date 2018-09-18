@@ -260,6 +260,33 @@ function getRecommendations() {
     localStorage.setItem('currentNelsonGenres', genresString);
     $('#current-genres').text(genresString);
 
+    // print selected genres
+    //----------
+    console.log('selected genres : ' +  genres); 
+    console.log('selected genres json : ' +  JSON.stringify({genres})); 
+    //----------
+
+    
+    // pass genres to flask backend 
+    // https://stackoverflow.com/questions/45473474/send-variable-from-javascript-into-flask
+    //----------
+     $.ajax({
+        url: '/recommend',
+        //url: "{{ url_for("recommend") }}",
+        //data: $('#current-genres').serialize(),
+        data: JSON.stringify({genres}),
+        type: 'POST',
+        dataType: "json",
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+    //----------
+
+
     // Get slider values
     let audioFeatures = getSliderValues();
     localStorage.setItem('currentNelsonFeatures', JSON.stringify(audioFeatures));
