@@ -67,7 +67,7 @@ def new_releases():
 #------------------------------------
 
   
-@app.route('/recommend', methods=['GET'])
+@app.route('/recommend', methods=['GET','POST'])
 def recommend():
     print (' request.args : ' , request.args)
     print (' request : ' , request)
@@ -93,6 +93,10 @@ def recommend():
     #return jsonify(recommendation_['tracks'][0])
     print ('type : ', type(jsonify(recommend_['tracks'])))
     print ('artist_ : ', artist_)
+    print ('current genres : ', jsonify(request.get_json()) )
+    print ('current genres : ',  (request) )
+    #print ('current genres : ', request.get_json().get('genres') )
+
     return jsonify(recommend_['tracks'])
 
 
