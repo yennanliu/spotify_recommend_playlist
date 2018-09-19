@@ -31,6 +31,9 @@ const scopes = [
 ];
 
 
+//----------------------------------------------
+
+
 */
 // client-side js
 // run by the browser each time your view template is loaded
@@ -69,6 +72,10 @@ $(function() {
     });
 
 });
+
+
+//----------------------------------------------
+
 
 // get song Genres
 /*
@@ -247,6 +254,9 @@ function getGenresList() {
 };
 
 
+//----------------------------------------------
+
+
 
 // get recommendation
 
@@ -269,18 +279,22 @@ function getRecommendations() {
 
     
 
-    // pass a request to flask backend  (test 1)
+    
     //----------
+
+    // pass a request to flask backend  (approach 1)
     $.get('/recommend?' + $.param({
         genres: JSON.stringify({genres})
         //genres: $('#current-genres').serialize()
     }))
+
     //----------
 
 
-    // pass genres to flask backend     (test 2)
+    //---------- 
+
+    // pass genres to flask backend     (approach 2)
     // https://stackoverflow.com/questions/45473474/send-variable-from-javascript-into-flask
-    //----------
      $.ajax({
         url: '/recommend?',
         //url: "{{/recommend}}",
@@ -296,7 +310,9 @@ function getRecommendations() {
             console.log(error);
         }
     });
+
     //----------
+
 
 
     // Get slider values
