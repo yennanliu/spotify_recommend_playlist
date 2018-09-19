@@ -234,6 +234,7 @@ function getGenresList() {
         $('#genres-list').append(genreButtonElement);
     });
 
+
     $('#genres-list').on('change', 'input', function() {
         if ($('#genres-list input:checked').length > 5) {
             $(this).parent().removeClass("active");
@@ -267,11 +268,22 @@ function getRecommendations() {
     //----------
 
     
-    // pass genres to flask backend 
+
+    // pass a request to flask backend  (test 1)
+    //----------
+    $.get('/recommend?' + $.param({
+        genres: JSON.stringify({genres})
+        //genres: $('#current-genres').serialize()
+    }))
+    //----------
+
+
+    // pass genres to flask backend     (test 2)
     // https://stackoverflow.com/questions/45473474/send-variable-from-javascript-into-flask
     //----------
      $.ajax({
-        url: '/recommend',
+        url: '/recommend?',
+        //url: "{{/recommend}}",
         //url: "{{ url_for("recommend") }}",
         //data: $('#current-genres').serialize(),
         data: JSON.stringify({genres}),

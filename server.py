@@ -93,9 +93,13 @@ def recommend():
     #return jsonify(recommendation_['tracks'][0])
     print ('type : ', type(jsonify(recommend_['tracks'])))
     print ('artist_ : ', artist_)
-    print ('current genres : ', jsonify(request.get_json()) )
-    print ('current genres : ',  (request) )
-    #print ('current genres : ', request.get_json().get('genres') )
+
+    data = request.get_json()
+    print ('current genres  1 : ', jsonify(request.get_json()) )
+    print ('current genres  2 : ',  (request.__dict__) )
+    print ('current genres  4 : ',  (request.__dict__['args']) )
+    #print ('current genres  4 : ',  (request.form['args']) )
+    
 
     return jsonify(recommend_['tracks'])
 
