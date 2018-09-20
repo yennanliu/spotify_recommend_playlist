@@ -6,8 +6,8 @@
 
 - Step 1 
 	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
-	- (you MUST have the spotify Premium account )
 	- https://developer.spotify.com/dashboard/applications
+	- (You MUST have the spotify Premium account )
 - Step 2 
 	- Create an APP at developer page with created SPOTIPY_CLIENT_ID
 	- https://developer.spotify.com
@@ -32,14 +32,13 @@ $ python server.py
 
 
 ## Inspired by 
-- https://github.com/arirawr/nelson
 - https://nelson.glitch.me/#
 
 
 ## Ref 
 
 - Projects 
-	- https://medium.com/deep-learning-turkey/build-your-own-spotify-playlist-of-best-playlist-recommendations-fc9ebe92826a
+	- https://github.com/arirawr/nelson
 	- https://glitch.com/~spotify-web-playback
 	- https://glitch.com/@spotify
 	- https://glitch.com/@a
@@ -48,7 +47,14 @@ $ python server.py
 	- https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
 	- https://developer.spotify.com/documentation/web-playback-sdk/reference/
 	- https://developer.spotify.com/console/get-recommendations 
+
 - Access token  
 	- https://ericdaat.github.io/scraping-kshe-radio-to-spotify-playlist.html
 	- https://github.com/drshrey/spotify-flask-auth-example
+
+- ML
+	- http://smarterplaylists.playlistmachinery.com/go.html
+	- https://medium.com/deep-learning-turkey/build-your-own-spotify-playlist-of-best-playlist-recommendations-fc9ebe92826a
+
+
 
