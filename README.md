@@ -54,6 +54,7 @@ $ python server.py
 
 - ML
 	- http://smarterplaylists.playlistmachinery.com/go.html
+	- https://github.com/smyrbdr/make-your-own-Spotify-playlist-of-playlist-recommendations
 	- https://medium.com/deep-learning-turkey/build-your-own-spotify-playlist-of-best-playlist-recommendations-fc9ebe92826a
 
 
