@@ -31,10 +31,50 @@ const scopes = [
 ];
 
 
+*/
+
+
+
 //----------------------------------------------
 
+// Page setup
+//setPlaybackSetting(1);
 
+
+//----------------------------------------------
+/*
+// Initialise Web Playback SDK
+function onSpotifyPlayerAPIReady() {
+  
+  let player = new Spotify.Player({
+    name: 'Nelson',
+    getOAuthToken: function(cb) {
+      //cb(_token)
+      cb('BQCgd4ha3HBSBz53fBNHn0nBIzonFH_Zfjc8KioX79DT6hFEzgImA2F01adjL_5tFXRuwkvW3GPr3Q07mMw')
+    },
+    volume: 0.8
+  });
+
+  player.on('ready', function(data) {
+    deviceId = data.device_id;
+    localStorage.setItem('nelsonBrowserDeviceID', data.device_id);
+  });
+
+  player.on('player_state_changed', function(data) {
+    if(data) {
+      let currentTrack = data.track_window.current_track.uri;
+      updateCurrentlyPlaying(currentTrack);
+    }  
+  });
+
+  player.connect();
+}
 */
+
+
+
+//----------------------------------------------
+
 // client-side js
 // run by the browser each time your view template is loaded
 // get artist input (frontend) and pass data to backend (flask)
@@ -75,9 +115,7 @@ $(function() {
 
 
 //----------------------------------------------
-
-
-// get song Genres
+// get song Genres (V1)
 /*
  function getGenresList() {
   $('#genres-list').empty();
@@ -103,6 +141,8 @@ $(function() {
 */
 
 
+//----------------------------------------------
+// get song Genres  (V2)
 
 function getGenresList() {
     $('#genres-list').empty();
@@ -255,9 +295,6 @@ function getGenresList() {
 
 
 //----------------------------------------------
-
-
-
 // get recommendation
 
 function getRecommendations() {
