@@ -18,14 +18,14 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 ├── [1.8k]  README.md
 ├── [3.1k]  collect_data.py  : Script collect data (/data)
 ├── [ 160]  data             : Scraped data for model training 
-├── [ 613]  install.sh       : Help bash install needed environment 
-├── [3.3k]  server.py        : Main script hold the APP backend service (flask)
+├── [ 613]  install.sh       : Bash help install needed environment 
+├── [3.3k]  server.py        : Script hold service-side services (Python flask)
 ├── [ 192]  templates	     
 │   ├── [9.4k]  client.js    : Script hold client-side services (playlist..) (JS)
 │   ├── [4.0k]  index.html   : Main html file 
 │   └── [3.6k]  style.css    : Main CSS file 
 ├── [4.6k]  utility.js       : Backup JS help script 
-└── [2.8k]  utility.py       : Help python script query spotify API 
+└── [2.8k]  utility.py       : Python script query spotify API 
 
 ```
 
@@ -41,6 +41,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 - Step 3 
 	- Execute the following commands then run the web APP locally 
+	- The APP UI should be available at : http://127.0.0.1:7777/
 
 ```bash 
 
@@ -54,8 +55,8 @@ $ python server.py
 ```
 
 ## TECH
-- Backend : Python3 flask, spotipy 
-- Frontend : Javascript, HTML, CSS 
+- Backend : Python3 flask, spotipy, sklearn 
+- Frontend : Javascript, Ajax, HTML, CSS, Bootstrap 
 
 
 ## INSPIRED BY 
