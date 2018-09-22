@@ -3,6 +3,14 @@
 <img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref/app_1.png" width="800" height="400">
 
  
+## IDEA 
+
+- Build a prior detector catch users' taste (ML model), pass the predict output as parameter to Spotify recommendation API then get the Spotify recommended playlist 
+
+```
+User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> recommended_playlist ---> Web_UI 
+
+```
 
 ## FILE STRUCTURE 
 
