@@ -2,6 +2,25 @@
 
 <img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref/app_1.png" width="800" height="400">
 
+ 
+
+## File structure 
+```
+├── [1.8k]  README.md
+├── [3.1k]  collect_data.py  : Script collect data (/data)
+├── [ 160]  data        	 : Scraped data for model training 
+├── [ 613]  install.sh 		 : Help bash install needed environment 
+├── [3.3k]  server.py   	 : Main script hold the APP backend service (flask)
+├── [ 192]  templates	     
+│   ├── [9.4k]  client.js    : Script hold client-side services (playlist..) (JS)
+│   ├── [4.0k]  index.html   : Main html file 
+│   └── [3.6k]  style.css    : Main CSS file 
+├── [4.6k]  utility.js       : Backup JS help script 
+└── [2.8k]  utility.py       : Help python script query spotify API 
+
+
+```
+
 ## Quick start 
 
 - Step 1 
