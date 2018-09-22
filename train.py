@@ -10,9 +10,7 @@ from sklearn.cross_validation import train_test_split, KFold, cross_val_score
 
 
 # -----------------------------
-# train 
-
-
+# ML 
 
 def main():
 	# load data 
@@ -20,21 +18,21 @@ def main():
 	df_test = pd.read_csv('data/test.csv')
 	# data preprocess
 	X = df_train[['acousticness',
-				'danceability',
-				'energy',
-				'instrumentalness',
-				'key', 
-				'liveness',
-				'loudness', 
-				'mode',
-				'speechiness', 
-				'tempo', 
-				'valence']]
+		'danceability',
+		'energy',
+		'instrumentalness',
+		'key', 
+		'liveness',
+		'loudness', 
+		'mode',
+		'speechiness', 
+		'tempo', 
+		'valence']]
 	y = df_train['ratings']
 	# train-test split 
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 	# ML 
-	# model 1) : RF 
+	# ---------------- model 1) : RF  ----------------
 	# config 
 	skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 	# need to tune super-parameter later 
@@ -60,8 +58,6 @@ def main():
 	---------------- TODO ---------------- 
 
 	"""
-
-
 
 
 # -----------------------------
