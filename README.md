@@ -19,7 +19,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 ├── [3.1k]  collect_data.py  : Script collect data (/data)
 ├── [ 160]  data             : Scraped data for model training 
 ├── [ 613]  install.sh       : Bash help install needed environment 
-├── [3.3k]  server.py        : Script hold service-side services (Python flask)
+├── [3.3k]  server.py        : Script hold serve-side services (Python flask)
 ├── [ 192]  templates	     
 │   ├── [9.4k]  client.js    : Script hold client-side services (playlist..) (JS)
 │   ├── [4.0k]  index.html   : Main html file 
