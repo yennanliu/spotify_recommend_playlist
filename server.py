@@ -104,6 +104,7 @@ def recommend():
     print (' 2) current request_get_json : ',  (request.__dict__) )
     print (' 3) current genres  (ImmutableMultiDict) : ',  current_genre)
     print (' 4) current genres  (dict) : ',  current_genre_dict)
+    print (' 5) fixed current genres  (dict) : ',  fix_genre_dict(current_genre_dict))
 
     return jsonify(recommend_['tracks'])
 

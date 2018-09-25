@@ -21,8 +21,20 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
 
+#------------------------------------
+# OP func 
 
-# op func 
+def fix_genre_dict(x):
+    try:
+        fixed_genre = list(x.values())[0][0].split(':')[1].replace('[','').replace(']','').replace('}','').replace('"','').split(',')
+    except:
+        fixed_genre = []
+
+    print ('fixed_genre : ', fixed_genre)
+    return fixed_genre
+
+
+#------------------------------------
 
 
 def generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET):
@@ -34,6 +46,7 @@ def generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET):
     token = credentials.get_access_token()
     return token 
 
+#------------------------------------
 
 
 def get_artist(name):
@@ -44,12 +57,17 @@ def get_artist(name):
     else:
         return None
 
+#------------------------------------
+
 
 def show_recommendations_for_artist(artist):
     albums = []
     results = sp.recommendations(seed_artists = [artist['id']])
     for track in results['tracks']:
         print (track['name'], '-', track['artists'][0]['name'])
+
+
+#------------------------------------
 
 
 
@@ -80,5 +98,6 @@ def get_recommend_spotify_api(dynamic_access_token=False):
 
 
 
+#------------------------------------
 
         
