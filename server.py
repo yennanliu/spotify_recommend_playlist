@@ -91,14 +91,18 @@ def recommend():
     """
     recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=100)
     #print ('recommendation : ', recommend_)  
-    # Return the list of new releases
-    #return jsonify(recommendation_['tracks'][0])
     print ('type : ', type(jsonify(recommend_['tracks'])))
     print ('artist_ : ', artist_)
 
     data = request.get_json()
     current_genre = request.__dict__['args']
     current_genre_dict = request.__dict__['args'].to_dict(flat=False)
+
+    # in case user update current genre 
+    if len(fix_genre_dict(current_genre_dict)) > 0:
+        recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=fix_genre_dict(current_genre_dict),country='FR',limit=5)
+    else:
+        pass 
 
     print (' 1) current request_get_status  : ', jsonify(request.get_json()) )
     print (' 2) current request_get_json : ',  (request.__dict__) )
