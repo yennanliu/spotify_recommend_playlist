@@ -82,10 +82,12 @@ def recommend():
     print ('artist_id : ', artist_id)
     
     """
+
     Send request to the Spotify API
     https://spotipy.readthedocs.io/en/latest/
     https://github.com/plamere/spotipy/blob/4c2c1d763a3653aa225c4af848409ec31286a6bf/spotipy/client.py#L797
     recommend_ = sp.recommendations(seed_artists=None, seed_genres=None, seed_tracks=None, limit=20, country=None, **kwargs)
+    
     """
     recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=100)
     #print ('recommendation : ', recommend_)  
@@ -95,14 +97,18 @@ def recommend():
     print ('artist_ : ', artist_)
 
     data = request.get_json()
-    print ('current genres  1 : ', jsonify(request.get_json()) )
-    print ('current genres  2 : ',  (request.__dict__) )
-    print ('current genres  4 : ',  (request.__dict__['args']) )
-    #print ('current genres  4 : ',  (request.form['args']) )
-    
+    current_genre = request.__dict__['args']
+    current_genre_dict = request.__dict__['args'].to_dict(flat=False)
+
+    print (' 1) current request_get_status  : ', jsonify(request.get_json()) )
+    print (' 2) current request_get_json : ',  (request.__dict__) )
+    print (' 3) current genres  (ImmutableMultiDict) : ',  current_genre)
+    print (' 4) current genres  (dict) : ',  current_genre_dict)
 
     return jsonify(recommend_['tracks'])
 
+
+#------------------------------------
 
 
 if __name__ == '__main__':
