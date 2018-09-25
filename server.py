@@ -48,6 +48,15 @@ def homepage():
 
 #------------------------------------
 
+@app.route('/slide_recommend')
+def slide_recommend_page():
+    return render_template('slide_recommend.html')
+
+
+
+
+#------------------------------------
+
 @app.route('/new_releases', methods=['GET'])
 def new_releases():
   
