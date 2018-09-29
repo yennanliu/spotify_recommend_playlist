@@ -1,32 +1,32 @@
+
+
 <!-- This is a static file -->
 <!-- served from your routes in server.js -->
 <!DOCTYPE html>
 <html>
    <head>
-
-    <div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">playlistX</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/artist_recommend">Artist_recommend</a></li>
-                <li><a href="/slide_recommend">Slide_recommend</a></li>
-                <li><a href="/others">others</a></li>
-                <li><a href="/dev">dev</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
+      <div class="navbar navbar-inverse" role="navigation">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="/">playlistX</a>
+            </div>
+            <div class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/artist_recommend">Artist_recommend</a></li>
+                  <li><a href="/slide_recommend">Slide_recommend</a></li>
+                  <li><a href="/others">others</a></li>
+                  <li><a href="/dev">dev</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
       <title>Spotify Flask Sample</title>
       <meta name="description" content="A cool thing made with Glitch">
       <!--<link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon"> -->
@@ -57,26 +57,27 @@
          </a>
       </header>
       <main>
-        <div class="inline space-after">
-          <h3>Current genres: <span id="current-genres"></span></h3>
-          <button class="btn btn-gray mb1 black bg-black" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
-        </div>
-        <div class="modal fade" id="genre-select">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div id="genres-list" data-toggle="buttons">
-                <label class="btn btn-salmon btn-sm" style="display:none">
-                  <!-- Buttons for each genre to be appended here -->
-                </label>
-              </div>
-
-              <div class="modal-footer">
-              <button type="button" class="btn btn-aubergine" data-dismiss="modal" onclick="getRecommendations();">Okay!</button>
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->   
-
+         <div class="inline space-after">
+            <h3>Current genres: <span id="current-genres"></span></h3>
+            <button class="btn btn-gray mb1 black bg-black" data-toggle="modal" data-target="#genre-select" onclick="getGenresList();">Choose genres</button>
+         </div>
+         <div class="modal fade" id="genre-select">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div id="genres-list" data-toggle="buttons">
+                     <label class="btn btn-salmon btn-sm" style="display:none">
+                        <!-- Buttons for each genre to be appended here -->
+                     </label>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-aubergine" data-dismiss="modal" onclick="getRecommendations();">Okay!</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal -->   
          <p>Choose an artist</p>
          <form>
             <div class="input-group col-md-6">
@@ -106,3 +107,4 @@
       <script src="/templates/client.js"></script>
    </body>
 </html>
+
