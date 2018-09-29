@@ -53,9 +53,16 @@ def slide_recommend_page():
     return render_template('slide_recommend.html')
 
 
+#------------------------------------
 
+
+@app.route('/dev')
+def dev_page():
+    return render_template('dev.html')
 
 #------------------------------------
+
+
 
 @app.route('/new_releases', methods=['GET'])
 def new_releases():
