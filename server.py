@@ -50,7 +50,12 @@ def homepage():
 
 @app.route('/slide_recommend')
 def slide_recommend_page():
-    return render_template('slide_recommend.html')
+    # hard code here, will have to make it dynamic
+    artist_ = 'HONNE'
+    artist_id = get_artist(artist_)['id']
+    recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=100)
+
+    return render_template('slide_recommend.html',data=jsonify(recommend_['tracks']))
 
 
 #------------------------------------
