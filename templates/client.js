@@ -74,10 +74,11 @@ function onSpotifyPlayerAPIReady() {
 
 
 //----------------------------------------------
-
 // client-side js
 // run by the browser each time your view template is loaded
 // get artist input (frontend) and pass data to backend (flask)
+
+// get seleted artist and parse to flask backend  (/Home page)
 $(function() {
 
     $('form').submit(function(event) {
@@ -112,6 +113,38 @@ $(function() {
     });
 
 });
+
+
+// get album pics (/slide_recommend page)
+$(function() {
+
+        $('#slide_recommend').empty();
+        let artist = $('select').val();
+        //let artist = 'the roots'
+
+        // Send a request to our backend (server.py) to get new releases for the currently selected country
+        $.get('/slide_recommend?' + $.param({
+            artist: artist
+        }), function(recommendation) {
+
+            // Loop through each album in the list
+            recommendation.forEach(function(recommend) {
+
+                console.log('-----------------------')
+                console.log(recommend)
+                console.log('-----------------------')
+
+                // Use the returned information in the HTML
+                let div = $('<div class="buddy" style="display: block;">' + 
+                            '<div class="avatar"  style="display: block; background-image: url(\'' +  recommend.album.images[0].url + '\')"></div>' 
+                            + '</div>')
+
+                div.appendTo('#slide_recommend')
+
+            });
+        });
+    });
+
 
 
 //----------------------------------------------
