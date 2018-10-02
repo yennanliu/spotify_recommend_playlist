@@ -1,7 +1,5 @@
 
 // ---------------------------------------------
-
-
 // Tinder like swipe cards feature  
 // credit 
 // https://codepen.io/developingidea/pen/meAIn
@@ -37,12 +35,10 @@ $(document).ready(function(){
 });
 
 // ---------------------------------------------
-
 // HELP JS on the  spotify client side op 
 // credit 
 // https://github.com/arirawr/nelson/blob/ac5436a19351118ce2067bfd3e815c52f154c504/client.js
 // set sliders
-
 function setUpSliders() {
     const sliderConfig = {
         range: true,
@@ -70,7 +66,6 @@ function setUpSliders() {
 
 
 // get song genre list 
-
 function getGenresList() {
     $('#genres-list').empty();
     $.get('/genres?token=' + _token, function(genres) {
@@ -93,7 +88,6 @@ function getGenresList() {
 
 
 // get song parameter 
-
 function getSliderValues() {
     let values = {};
     let min_popularity = $('#popularity-slider').slider('values', 0);
@@ -119,8 +113,6 @@ function getSliderValues() {
 
 
 // get recommendation 
-
-
 function getRecommendations() {
 
     // Get selected genres
