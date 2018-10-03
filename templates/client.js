@@ -116,6 +116,20 @@ $(function() {
 
 
 // get album pics (/slide_recommend page)
+
+/* V1 */
+
+/*
+function slide_recommend(vars) {
+    return vars
+}
+*/
+
+function slide_recommend() {
+    return pic_url
+}
+
+/* V2 
 $(function() {
 
         $('#slide_recommend').empty();
@@ -145,7 +159,7 @@ $(function() {
         });
     });
 
-
+*/
 
 //----------------------------------------------
 // get song Genres (V1)

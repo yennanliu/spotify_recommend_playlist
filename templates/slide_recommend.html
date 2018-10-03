@@ -55,7 +55,15 @@
          </div>
       </div>
       <script src="/templates/utility.js"></script>
+      <script type="text/javascript"> 
+      //https://stackoverflow.com/questions/42499535/passing-a-json-object-from-flask-to-javascript
+      var pic_url = ('{{ data }}'); 
+      //var pic_url = ('{{ data }}')
+      //var pic_url = JSON.parse('{{ data | safe}}');
+      </script>
       <script src="/templates/client.js"></script>
+
+
    </body>
 </html>
 

@@ -54,8 +54,9 @@ def slide_recommend_page():
     artist_ = 'HONNE'
     artist_id = get_artist(artist_)['id']
     recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=100)
-
-    return render_template('slide_recommend.html',data=jsonify(recommend_['tracks']))
+    print (' ********* recommend_  ********* : ' , recommend_)
+    return render_template('slide_recommend.html',data=recommend_['tracks'])
+    #return render_template('slide_recommend.html',data=jsonify(recommend_['tracks']))
 
 
 #------------------------------------
