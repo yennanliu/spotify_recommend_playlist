@@ -129,6 +129,13 @@ function slide_recommend() {
     return pic_url
 }
 
+
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value; 
+}  
+
 /* V2 
 $(function() {
 
