@@ -8,6 +8,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 from spotipy import oauth2
+import json
 # UDF
 from utility import * 
 
@@ -53,9 +54,11 @@ def slide_recommend_page():
     # hard code here, will have to make it dynamic
     artist_ = 'HONNE'
     artist_id = get_artist(artist_)['id']
-    recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=100)
+    recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=5)
+    pic_url = [ recommend_['tracks'][i]['album']['images'][0]['url'] for i in range(len(recommend_['tracks']))]
     print (' ********* recommend_  ********* : ' , recommend_)
-    return render_template('slide_recommend.html',data=recommend_['tracks'])
+    print (' ***** pic_url : ***** ', (pic_url))
+    return render_template('slide_recommend.html',data=pic_url )
     #return render_template('slide_recommend.html',data=jsonify(recommend_['tracks']))
 
 
@@ -131,7 +134,6 @@ def recommend():
     print (' 3) current genres  (ImmutableMultiDict) : ',  current_genre)
     print (' 4) current genres  (dict) : ',  current_genre_dict)
     print (' 5) fixed current genres  (dict) : ',  fix_genre_dict(current_genre_dict))
-
     return jsonify(recommend_['tracks'])
 
 
