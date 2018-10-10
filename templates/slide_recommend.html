@@ -54,7 +54,9 @@
          {% for i in data %}
          <td>{{i}}</td>
          <div class="buddy">
-            <div class="avatar" style="display: block; background-image: url({})".format(i)>
+         <!-- jinja for loop insert value into div  -->
+         <!-- https://stackoverflow.com/questions/40486246/using-jinja2-for-unqiue-div-ids-during-loop -->
+            <div class="avatar" style="display: block; background-image: url({{i}})".format(i)>
          </div>
       </div>
       {% endfor %}
