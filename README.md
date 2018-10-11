@@ -3,7 +3,7 @@
 <img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref/app_1.png" width="800" height="400">
 
  
-## IDEA 
+## 0) IDEA 
 
 - Build a prior detector catch users' taste (ML model), pass the predict output as parameter to Spotify recommendation API then get the Spotify recommended playlist 
 
@@ -12,7 +12,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 ```
 
-## FILE STRUCTURE 
+## 1) FILE STRUCTURE 
 
 ```
 ├── [1.8k]  README.md
@@ -29,7 +29,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 ```
 
-## QUICK START
+## 2) QUICK START
 
 - Step 1 
 	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
@@ -44,7 +44,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 	- The APP UI should be available at : http://127.0.0.1:7777/
 
 
-### Run directly  
+#### 2-1) Run directly  
 
 ```bash 
 
@@ -58,7 +58,7 @@ $ python server.py
 
 ```
 
-### Run via Docker 
+#### 2-2) Run via Docker 
 
 ```bash 
 
@@ -79,16 +79,16 @@ docker run -it spotify_rec_env:v1
 
 
 
-## TECH
+## 3) TECH
 - Backend : Python3 flask, spotipy, sklearn 
 - Frontend : Javascript, Ajax, HTML, CSS, Bootstrap 
 
 
-## INSPIRED BY 
+## 4) INSPIRED BY 
 - https://nelson.glitch.me/#
 
 
-## REF 
+## 5)REF 
 
 - Projects 
 	- https://github.com/arirawr/nelson
