@@ -29,7 +29,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 ```
 
-## QUICK START 
+## QUICK START
 
 - Step 1 
 	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
@@ -43,6 +43,9 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 	- Execute the following commands then run the web APP locally 
 	- The APP UI should be available at : http://127.0.0.1:7777/
 
+
+### Run directly  
+
 ```bash 
 
 $ cd ~ && git clone https://github.com/yennanliu/spotify_recommend_playlist.git
@@ -51,8 +54,30 @@ $ bash install.sh
 $ export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
 $ export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
 $ python server.py 
+# The APP UI should be available at : http://127.0.0.1:7777/
 
 ```
+
+### Run via Docker 
+
+```bash 
+
+$ cd ~ && git clone https://github.com/yennanliu/spotify_recommend_playlist.git
+$ cd ~ && cd spotify_recommend_playlist
+$ export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
+$ export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
+# https://hub.docker.com/r/yennanliu/spotify_rec_env/
+$ docker pull yennanliu/spotify_rec_env:v1 
+$ docker images 
+$ docker ps 
+# launch container 
+docker run  spotify_rec_env:v1 
+# run image 
+docker run -it spotify_rec_env:v1 
+
+```
+
+
 
 ## TECH
 - Backend : Python3 flask, spotipy, sklearn 
