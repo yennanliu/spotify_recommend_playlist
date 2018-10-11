@@ -10,7 +10,8 @@ MAINTAINER "yen"
 #############  install library ################
 
 RUN rm -rf /var/lib/apt/lists/* && \
-    /opt/conda/bin/conda install numpy pandas scikit-learn spotipy flask && \
+    /opt/conda/bin/conda install numpy pandas scikit-learn flask && \
+    pip install imutils spotipy && \ 
     /opt/conda/bin/conda upgrade dask 
 
 
