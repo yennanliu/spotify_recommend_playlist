@@ -15,15 +15,22 @@ RUN rm -rf /var/lib/apt/lists/* && \
     /opt/conda/bin/conda upgrade dask 
 
 
+RUN apt-get install -y git
+
+
 #############  run commands  ################
 
 
-# app ports
-EXPOSE 7777 
 
+#############  clone repo  ################
 
+# Clone the conf files into the docker container
+RUN git clone https://github.com/yennanliu/spotify_recommend_playlist.git
 
 #############  run the flask app  ################
+
+# app ports
+EXPOSE 7777 
 
 # export env variable 
 #ENV SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
