@@ -9,26 +9,25 @@ MAINTAINER "yen"
 
 #############  install library ################
 
-RUN apt-get update && apt-get install -y libgtk2.0-dev && \
-    rm -rf /var/lib/apt/lists/* && \
+RUN rm -rf /var/lib/apt/lists/* && \
     /opt/conda/bin/conda install numpy pandas scikit-learn spotipy flask && \
     /opt/conda/bin/conda upgrade dask 
 
 
 #############  run commands  ################
 
-RUN ["mkdir", "notebooks"]
 
-COPY jupyter_notebook_config.py /root/.jupyter/
+# app ports
+EXPOSE 7777 
 
-# Jupyter ports
-EXPOSE 8888 
-
-# Store notebooks in this mounted directory
-VOLUME /notebooks
 
 
 #############  run the flask app  ################
+
+# export env variable 
+#ENV SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
+#ENV SPOTIPY_CLIENT_ID=<your_CLIENT_SECRET>
+
 
 #ENTRYPOINT ["python"]
 #CMD ["server.py"]
