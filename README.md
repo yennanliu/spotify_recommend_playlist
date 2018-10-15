@@ -44,7 +44,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 	- The APP UI should be available at : http://127.0.0.1:7777/
 
 
-#### 2-1) Run directly  
+#### Method 2-1) Run directly  
 
 ```bash 
 
@@ -58,7 +58,7 @@ $ python server.py
 
 ```
 
-#### 2-2) Run via Docker 
+#### Method 2-2) Run via Docker 
 
 ```bash 
 
@@ -72,10 +72,11 @@ docker run  spotify_rec_env:v1
 # run image 
 docker run -it spotify_rec_env:v1 
 # inside docker env 
-(base) root@3797bf037d38:/# export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
-(base) root@3797bf037d38:/# export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
-(base) root@3797bf037d38:/# cd spotify_recommend_playlist/ 
-(base) root@3797bf037d38:/# python server.py 
+#((base) root@3797bf037d38:/#)
+(base) root@3797bf037d38:/ export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
+(base) root@3797bf037d38:/ export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
+(base) root@3797bf037d38:/ cd spotify_recommend_playlist/ 
+(base) root@3797bf037d38:/ python server.py 
 ```
 
 
