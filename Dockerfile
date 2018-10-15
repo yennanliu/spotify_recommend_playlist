@@ -36,9 +36,9 @@ EXPOSE 7777
 #ENV SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
 #ENV SPOTIPY_CLIENT_ID=<your_CLIENT_SECRET>
 
-
-#ENTRYPOINT ["python"]
-#CMD ["server.py"]
+# run the APP 
+ENTRYPOINT ["python"]
+CMD ["server.py"]
 
 
 
