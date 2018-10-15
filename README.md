@@ -75,7 +75,7 @@ docker run spotify_rec_env:v1
 #docker run -it spotify_rec_env:v1 
 docker run -p 7777:7777 -e SPOTIPY_CLIENT_ID=<your_CLIENT_ID> \
 -e SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>\
--it spotify_rec_env:v1
+-it spotify_rec_env
 # The APP UI should be available at : http://127.0.0.1:7777/
 
 
