@@ -62,10 +62,7 @@ $ python server.py
 
 ```bash 
 
-$ cd ~ && git clone https://github.com/yennanliu/spotify_recommend_playlist.git
-$ cd ~ && cd spotify_recommend_playlist
-$ export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
-$ export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
+$ cd ~ 
 # https://hub.docker.com/r/yennanliu/spotify_rec_env/
 $ docker pull yennanliu/spotify_rec_env:v1 
 $ docker images 
@@ -74,7 +71,11 @@ $ docker ps
 docker run  spotify_rec_env:v1 
 # run image 
 docker run -it spotify_rec_env:v1 
-
+# inside docker env 
+(base) root@3797bf037d38:/# export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
+(base) root@3797bf037d38:/# export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
+(base) root@3797bf037d38:/# cd spotify_recommend_playlist/ 
+(base) root@3797bf037d38:/# python server.py 
 ```
 
 
