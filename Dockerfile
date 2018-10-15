@@ -30,7 +30,7 @@ RUN git clone https://github.com/yennanliu/spotify_recommend_playlist.git
 #############  run the flask app  ################
 
 # app ports
-EXPOSE 7777 
+EXPOSE 7778 
 
 # export env variable 
 #ENV SPOTIPY_CLIENT_ID=<your_CLIENT_ID> 
