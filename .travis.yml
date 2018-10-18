@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install flask spotipy pandas numpy scikit-learn
+# command to run tests
+script:
+  - train.py  
+
+
+
+language: bash
+script:
+    - bash install.sh
