@@ -23,7 +23,9 @@ install:
   - conda create -q -n dev_env python=3.5
   - source activate dev_env
   - pip install --upgrade pip
-  - pip install flask spotipy pandas numpy scikit-learn pytest
+  - pip install flask spotipy pandas numpy pytest
+  - pip install -U scikit-learn
+  - pip freeze list 
 # command to run tests
 
 script:
