@@ -9,8 +9,4 @@ install:
 script:
   - train.py  
 
-
-
-language: bash
-script:
-    - bash install.sh
+  
