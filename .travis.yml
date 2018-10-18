@@ -4,9 +4,11 @@ python:
   - "3.6"
 # command to install dependencies
 install:
+  - pip install --upgrade pip
   - pip install flask spotipy pandas numpy scikit-learn
 # command to run tests
 script:
-  - train.py  
+  - python train.py
 
-  
+
+
