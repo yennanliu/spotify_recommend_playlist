@@ -56,9 +56,13 @@ def slide_recommend_page():
     artist_id = get_artist(artist_)['id']
     recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=5)
     pic_url = [ recommend_['tracks'][i]['album']['images'][0]['url'] for i in range(len(recommend_['tracks']))]
+    artist_name = [ recommend_['tracks'][i]['album']['artists'][0]['name'] for i in range(len(recommend_['tracks']))]
+    album_name = [ recommend_['tracks'][i]['name'] for i in range(len(recommend_['tracks']))]
+    data_ = pd.DataFrame({'pic_url': pic_url,'artist_name':artist_name,  'album_name': album_name})
+    print ('data_ : ', data_.head(5))
     print (' ********* recommend_  ********* : ' , recommend_)
     print (' ***** pic_url : ***** ', (pic_url))
-    return render_template('slide_recommend.html',data=pic_url )
+    return render_template('slide_recommend.html',data=data_ )
     #return render_template('slide_recommend.html',data=jsonify(recommend_['tracks']))
 
 
