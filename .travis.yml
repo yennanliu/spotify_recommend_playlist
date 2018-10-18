@@ -22,7 +22,6 @@ install:
   - conda info -a
   - conda create -q -n dev_env python=3.5
   - source activate dev_env
-  - python setup.py install
   - pip install --upgrade pip
   - pip install flask spotipy pandas numpy scikit-learn pytest
 # command to run tests
