@@ -51,13 +51,14 @@
          <div class="buddy">
             <div class="avatar" style="display: block; background-image: url(http://image13.m1905.cn/mdb/uploadfile/2017/0516/thumb_1_300_410_20170516090500773498.jpg)"></div>
          </div>
-         {% for i in data %}
+         {% for i,j in data.iterrows() %}
          <!-- <td>{{i}}</td> -->
          <div class="buddy">
          <!-- jinja for loop insert value into div  -->
          <!-- https://stackoverflow.com/questions/40486246/using-jinja2-for-unqiue-div-ids-during-loop -->
-            <h5 style="color:#069" >  URL :  {{i}} </h5>
-            <div class="avatar" style="display: block; background-image: url({{i}})".format(i)>
+            <h6 style="color:#0C0300" > <I> Artist :  {{ j.artist_name }} </I></h6>
+            <h6 style="color:#0C0300" > <I> Album :  {{ j.album_name }} </I></h6>
+            <div class="avatar" style="display: block; background-image: url({{j.pic_url}})".format(i)>
             
          </div>
       </div>
