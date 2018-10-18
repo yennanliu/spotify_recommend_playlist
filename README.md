@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/yennanliu/spotify_recommend_playlist.svg?branch=master)](https://travis-ci.org/yennanliu/spotify_recommend_playlist)
 
-
 <img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref/app_1.png" width="800" height="400">
 
  
