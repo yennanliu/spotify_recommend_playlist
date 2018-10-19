@@ -4,10 +4,8 @@
 import pandas as pd, numpy as np
 
 # ML 
-from sklearn.model_selection import StratifiedKFold, GridSearchCV
+from sklearn.model_selection import StratifiedKFold, GridSearchCV, train_test_split, KFold, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.cross_validation import train_test_split, KFold, cross_val_score
-
 
 # -----------------------------
 # ML 
