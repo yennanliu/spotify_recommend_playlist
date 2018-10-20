@@ -38,10 +38,11 @@ services:
   - docker
 
 
-before_install:
+after_install:
+  script:
   - docker pull yennanliu/spotify_rec_env:v1
   - docker ps -a
-  - docker run spotify_rec_env:v1 
+
 
 
 
