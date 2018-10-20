@@ -70,14 +70,18 @@ $ docker pull yennanliu/spotify_rec_env:v1
 $ docker images 
 $ docker ps 
 # launch container 
-docker run spotify_rec_env:v1 
+docker run yennanliu/spotify_rec_env:v1
+# run image 
+docker run -it  yennanliu/spotify_rec_env:v1 
+
+
 # run image 
 # pass varianle to docker 
 # https://stackoverflow.com/questions/30494050/how-do-i-pass-environment-variables-to-docker-containers
 #docker run -it spotify_rec_env:v1 
-docker run -p 7777:7777 -e SPOTIPY_CLIENT_ID=<your_CLIENT_ID> \
--e SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>\
--it spotify_rec_env
+#docker run -p 7777:7777 -e SPOTIPY_CLIENT_ID=<your_CLIENT_ID> \
+#-e SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>\
+#-it spotify_rec_env
 # The APP UI should be available at : http://127.0.0.1:7777/
 
 
