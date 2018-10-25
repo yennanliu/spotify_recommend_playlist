@@ -61,7 +61,8 @@ def slide_recommend_page():
     pic_url = [ recommend_['tracks'][i]['album']['images'][0]['url'] for i in range(len(recommend_['tracks']))]
     artist_name = [ recommend_['tracks'][i]['album']['artists'][0]['name'] for i in range(len(recommend_['tracks']))]
     album_name = [ recommend_['tracks'][i]['name'] for i in range(len(recommend_['tracks']))]
-    data_ = pd.DataFrame({'pic_url': pic_url,'artist_name':artist_name,  'album_name': album_name})
+    preview_url =  [ recommend_['tracks'][i]['preview_url'] for i in range(len(recommend_['tracks']))]
+    data_ = pd.DataFrame({'pic_url': pic_url,'artist_name':artist_name,  'album_name': album_name,'preview_url':preview_url })
     print ('data_ : ', data_.head(5))
     print (' ********* recommend_  ********* : ' , recommend_)
     print (' ***** pic_url : ***** ', (pic_url))

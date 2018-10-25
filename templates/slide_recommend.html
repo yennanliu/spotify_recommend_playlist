@@ -59,6 +59,9 @@
             <h6 style="color:#0C0300" > <I> Artist :  {{ j.artist_name }} </I></h6>
             <h6 style="color:#0C0300" > <I> Album :  {{ j.album_name }} </I></h6>
             <div class="avatar" style="display: block; background-image: url({{j.pic_url}})".format(i)>
+            <audio controls="controls autoplay">
+            <source src= {{ j.preview_url }} type="audio/mpeg"/>
+            </audio>
             
          </div>
       </div>
