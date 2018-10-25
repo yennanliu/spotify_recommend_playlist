@@ -11,6 +11,7 @@ from spotipy import oauth2
 import json
 # UDF
 from utility import * 
+from load_creds import * 
 
 
 
@@ -21,16 +22,18 @@ from utility import *
 # Authenticate with Spotify using the Client Credentials flow
 
 try:
+    SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET = get_spotify_client_id_secret() 
+except:
     SPOTIPY_CLIENT_ID = os.environ['SPOTIPY_CLIENT_ID']
     SPOTIPY_CLIENT_SECRET = os.environ['SPOTIPY_CLIENT_SECRET'] 
-except:
+else:
     print (' No API key , please set up  via : ')
     print (' https://developer.spotify.com/dashboard/applications ')
 
 
 
 
-client_credentials_manager = SpotifyClientCredentials()
+client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 app = Flask(__name__, static_folder='templates', template_folder='templates')
 
