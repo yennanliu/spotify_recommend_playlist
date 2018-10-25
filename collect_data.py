@@ -21,21 +21,23 @@ import numpy as np
 
 # UDF
 from utility import * 
-
+from load_creds import * 
 
 
 # -------------------------------------------
 # config 
 
 try:
+    SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET = get_spotify_client_id_secret() 
+except:
     SPOTIPY_CLIENT_ID = os.environ['SPOTIPY_CLIENT_ID']
     SPOTIPY_CLIENT_SECRET = os.environ['SPOTIPY_CLIENT_SECRET'] 
-except:
+else:
     print (' No API key , please set up  via : ')
     print (' https://developer.spotify.com/dashboard/applications ')
 
 
-client_credentials_manager = SpotifyClientCredentials()
+client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 
@@ -108,6 +110,10 @@ def collect_test_V1(playlist_df):
 if __name__ == '__main__':
 	df_train = collect_train_V1()
 	df_test = collect_test_V1(df_train)
+	print ('='*70)
+	print ('df_train :', df_train.head())
+	print ('df_train :', df_train.head())
+	print ('='*70)
 
 
 
