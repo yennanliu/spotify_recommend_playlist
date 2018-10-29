@@ -1,5 +1,3 @@
-
-
 <!--modify from https://codepen.io/developingidea/pen/meAIn -->
 <!DOCTYPE html>
 <html>
@@ -53,8 +51,29 @@
          <div class="buddy">
             <div class="avatar" style="display: block; background-image: url(http://image13.m1905.cn/mdb/uploadfile/2017/0516/thumb_1_300_410_20170516090500773498.jpg)"></div>
          </div>
+         {% for i,j in data.iterrows() %}
+         <!-- <td>{{i}}</td> -->
+         <div class="buddy">
+         <!-- jinja for loop insert value into div  -->
+         <!-- https://stackoverflow.com/questions/40486246/using-jinja2-for-unqiue-div-ids-during-loop -->
+            <h6 style="color:#0C0300" > <I> Artist :  {{ j.artist_name }} </I></h6>
+            <h6 style="color:#0C0300" > <I> Album :  {{ j.album_name }} </I></h6>
+            <div class="avatar" style="display: block; background-image: url({{j.pic_url}})".format(i)>
+            <audio controls="controls autoplay">
+            <source src= {{ j.preview_url }} type="audio/mpeg"/>
+            </audio>
+            
+         </div>
+      </div>
+      {% endfor %}
       </div>
       <script src="/templates/utility.js"></script>
+      <script src="/templates/client.js"></script>
+      <script type="text/javascript"> 
+         //https://stackoverflow.com/questions/42499535/passing-a-json-object-from-flask-to-javascript
+         //var pic_url = ('{{ data }}').replace(/&#39;/g,"'");
+         //var pic_url2 = ('data'); 
+         
+      </script>
    </body>
 </html>
-
