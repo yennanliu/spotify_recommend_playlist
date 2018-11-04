@@ -14,7 +14,10 @@ $(document).ready(function(){
       $(this).append('<div class="status like">Like!</div>');      
       if ( $(this).is(':last-child') ) {
         $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+        console.log(' ****** OUPS ******');
          alert('OUPS');
+         var slide_msg = 'OUPS';
+         return slide_msg;
        } else {
           $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
        }
@@ -27,7 +30,10 @@ $(document).ready(function(){
 
     if ( $(this).is(':last-child') ) {
      $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+      console.log(' ****** OUPS ******');
       alert('OUPS');
+      var slide_msg = 'OUPS';
+      return slide_msg;
      } else {
         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     } 
