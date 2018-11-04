@@ -85,5 +85,5 @@ docker run --rm -v $PWD/spotify_recommend_playlist:/url  yennanliu/spotify_rec_e
 
 
 ## 5)REF 
--[reference.md](https://github.com/yennanliu/spotify_recommend_playlist/ref.md) 
+- [reference](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref.md) 
 
