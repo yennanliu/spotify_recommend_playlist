@@ -44,6 +44,7 @@ after_install:
   - docker ps -a
   - docker run yennanliu/spotify_rec_env:v1
   - docker images 
+  - docker run --rm -v $PWD/spotify_recommend_playlist:/url  yennanliu/spotify_rec_env:v1  /bin/bash -c "git clone https://github.com/yennanliu/spotify_recommend_playlist.git ;  ls  ;  pwd ; export SPOTIPY_CLIENT_ID=<your_SPOTIPY_CLIENT_ID>; export SPOTIPY_CLIENT_SECRET=<your_SPOTIPY_CLIENT_SECRET>;  cd spotify_recommend_playlist &&  python server.py"
 
 
 
