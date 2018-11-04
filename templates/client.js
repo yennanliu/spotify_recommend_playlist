@@ -133,10 +133,7 @@ $(function() {
 
 $(function() {
 
-    $('form').submit(function(event) {
-        event.preventDefault();
-
-        $('#recommend').empty();
+        $('#recommend2').empty();
         let artist = $('select').val();
         //let artist = 'the roots'
 
@@ -158,12 +155,10 @@ $(function() {
                     '\')" class="sp-cover" alt="Album cover"></div></a><h3 class="sp-title">' + recommend.name +
                     '</h3><p class="text-grey-55 sp-by">By ' + recommend.album.artists[0].name + '</p></div>')
 
-                div.appendTo('#recommend')
+                div.appendTo('#recommend2')
 
             });
         });
-    });
-
 });
 
 
