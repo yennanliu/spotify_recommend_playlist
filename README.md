@@ -39,11 +39,16 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 - Step 1 
 	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
 	- https://developer.spotify.com/dashboard/applications
+
 - Step 2 
 	- Create an APP at developer page with created SPOTIPY_CLIENT_ID
 	- https://developer.spotify.com
 
 - Step 3 
+	- Update the Spotify credential (SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
+	- [.creds.yml](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/.creds.yml) 
+
+- Step 4
 	- Execute the following commands then run the web APP locally 
 	- The APP UI should be available at : http://127.0.0.1:7777/
 
@@ -88,3 +93,8 @@ docker run --rm -v $PWD/spotify_recommend_playlist:/url  yennanliu/spotify_rec_e
 ## 5)REF 
 - [reference](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref.md) 
 
+
+## 6) TODO
+- Fix JS Ajax call API part
+- Fix frontend layout 
+- Dockerize the project  
