@@ -36,6 +36,8 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 ## 2) QUICK START
 
+#### Prerequisites
+
 - Step 1 
 	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
 	- https://developer.spotify.com/dashboard/applications
@@ -49,7 +51,7 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 	- [.creds.yml](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/.creds.yml) 
 
 - Step 4
-	- Execute the following commands then run the web APP locally 
+	- Execute the following commands (Method 1)then run the web APP locally 
 	- The APP UI should be available at : http://127.0.0.1:7777/
 
 
