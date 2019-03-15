@@ -57,12 +57,12 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 #### Method 1) Run directly  
 
-- [quick start](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
+- [quick start](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/quick_start.md)
 
 
 #### Method 2) Run via Docker 
 
-- [quick start docker](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
+- [quick start docker](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/quick_start_docker.md)
 
 
 ## 3) TECH
