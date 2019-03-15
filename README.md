@@ -57,30 +57,12 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 #### Method 1) Run directly  
 
-```bash 
+- [quick start](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
 
-$ cd ~ && git clone https://github.com/yennanliu/spotify_recommend_playlist.git
-$ cd ~ && cd spotify_recommend_playlist
-$ bash install.sh 
-# way 1) 
-# $ export SPOTIPY_CLIENT_ID=<your_CLIENT_ID> && export SPOTIPY_CLIENT_SECRET=<your_CLIENT_SECRET>
-# way 2)
-$ nano .creds.yml # update .creds.yml with your SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET
-$ python server.py 
-# The APP UI should be available at : http://127.0.0.1:7777/
-
-```
 
 #### Method 2) Run via Docker 
 
-```bash 
-# plz update  SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET with your Spotify creds
-
-docker run --rm -v $PWD/spotify_recommend_playlist:/url  yennanliu/spotify_rec_env:v1  /bin/bash -c "git clone https://github.com/yennanliu/spotify_recommend_playlist.git ;  ls  ;  pwd ; export SPOTIPY_CLIENT_ID=<your_SPOTIPY_CLIENT_ID>; export SPOTIPY_CLIENT_SECRET=<your_SPOTIPY_CLIENT_SECRET>;  cd spotify_recommend_playlist &&  python server.py"
-
-
-```
-
+- [quick start docker](https://github.com/yennanliu/XBot/blob/master/doc/airflow_quick_start.md)
 
 
 ## 3) TECH
