@@ -1,15 +1,20 @@
 # python 3 
-
 # OP 
 import pandas as pd, numpy as np
-
 # ML 
 from sklearn.model_selection import StratifiedKFold, GridSearchCV, train_test_split, KFold, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 
+##########################################################
+# ---------------- TODO ---------------- 
+# 1) predict on test data
+# 2) tune the super-parameter / 
+# 3) modify train func let users can randomly rate songs 
+# ---------------- TODO ---------------- 
+##########################################################
+
 # -----------------------------
 # ML 
-
 def main():
 	# load data 
 	df_train = pd.read_csv('data/train.csv')
@@ -48,21 +53,7 @@ def main():
 	# print final predict result 
 	print (prediction_[['id','predict_rate','ratings' ]])
 	return prediction_
-	"""
-	---------------- TODO ---------------- 
-	1) predict on test data
-	2) tune the super-parameter / 
-	3) modify train func let users can randomly rate songs 
-	---------------- TODO ---------------- 
-
-	"""
-
-
-# -----------------------------
 
 if __name__ == '__main__':
 	main()
-
-
-
-
+	
