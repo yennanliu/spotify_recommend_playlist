@@ -6,25 +6,14 @@ import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 from spotipy import oauth2
-
 # UDF 
 from load_creds import * 
 
+#credit 
+#https://github.com/plamere/spotipy/blob/master/examples/artist_recommendations.py
 
-
-
-''' 
-
-credit 
-https://github.com/plamere/spotipy/blob/master/examples/artist_recommendations.py
-
-'''
-
-
-
-
+#------------------------------------
 # config 
-
 try:
     SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET = get_spotify_client_id_secret() 
 except:
@@ -33,17 +22,13 @@ except:
 else:
     print (' No API key , please set up  via : ')
     print (' https://developer.spotify.com/dashboard/applications ')
-
-
 #client_credentials_manager = SpotifyClientCredentials()
 client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
-
-
 #------------------------------------
-# OP func 
 
+# OP func 
 def fix_genre_dict(x):
     try:
         fixed_genre = list(x.values())[0][0].split(':')[1].replace('[','').replace(']','').replace('}','').replace('"','').split(',')
@@ -52,10 +37,6 @@ def fix_genre_dict(x):
 
     print ('fixed_genre : ', fixed_genre)
     return fixed_genre
-
-
-#------------------------------------
-
 
 def generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET):
     """ Generate the token. Please respect these credentials :) """
@@ -66,9 +47,6 @@ def generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET):
     token = credentials.get_access_token()
     return token 
 
-#------------------------------------
-
-
 def get_artist(name):
     results = sp.search(q='artist:' + name, type='artist')
     items = results['artists']['items']
@@ -77,19 +55,11 @@ def get_artist(name):
     else:
         return None
 
-#------------------------------------
-
-
 def show_recommendations_for_artist(artist):
     albums = []
     results = sp.recommendations(seed_artists = [artist['id']])
     for track in results['tracks']:
         print (track['name'], '-', track['artists'][0]['name'])
-
-
-#------------------------------------
-
-
 
 def get_recommend_spotify_api(dynamic_access_token=False):
     """ will get spotify API access token dynamically later """
@@ -115,9 +85,3 @@ def get_recommend_spotify_api(dynamic_access_token=False):
                         'id' : id_,
                         'album_type' : album_type})
     print (data)
-
-
-
-#------------------------------------
-
-        
