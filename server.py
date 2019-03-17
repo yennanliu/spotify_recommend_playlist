@@ -1,26 +1,20 @@
 # -*- coding: utf-8 -*-
 # python 3 
-
 import os
 from flask import Flask, request, render_template, jsonify
+import json
 # Spotify API wrapper, documentation here: http://spotipy.readthedocs.io/en/latest/
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 from spotipy import oauth2
-import json
 # UDF
 from utility import * 
 from load_creds import * 
 
-
-
-
-
 #------------------------------------
 # config 
 # Authenticate with Spotify using the Client Credentials flow
-
 try:
     SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET = get_spotify_client_id_secret() 
 except:
@@ -30,16 +24,18 @@ else:
     print (' No API key , please set up  via : ')
     print (' https://developer.spotify.com/dashboard/applications ')
 
-
-
-
 client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 app = Flask(__name__, static_folder='templates', template_folder='templates')
-
-
-
 #------------------------------------
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 @app.route('/')
 def homepage():
@@ -48,9 +44,6 @@ def homepage():
     access_token = generate_token(SPOTIPY_CLIENT_ID,SPOTIPY_CLIENT_SECRET)
     print ('access_token : ', access_token)
     return render_template('artist_recommend.html')
-
-
-#------------------------------------
 
 @app.route('/slide_recommend')
 def slide_recommend_page():
@@ -69,10 +62,6 @@ def slide_recommend_page():
     return render_template('slide_recommend.html',data=data_ )
     #return render_template('slide_recommend.html',data=jsonify(recommend_['tracks']))
 
-
-#------------------------------------
-
-
 @app.route('/dev')
 def dev_page():
     recommend_ =  sp.recommendations(seed_artists = [get_artist('common')['id']],seed_genres=['dubstep','deep-house','edm'],country='FR',limit=5)
@@ -82,10 +71,6 @@ def dev_page():
     preview_url =  [ recommend_['tracks'][i]['preview_url'] for i in range(len(recommend_['tracks']))]
     data_ = pd.DataFrame({'pic_url': pic_url,'artist_name':artist_name,  'album_name': album_name,'preview_url':preview_url })
     return render_template('dev.html',data=data_ )
-
-#------------------------------------
-
-
 
 @app.route('/new_releases', methods=['GET'])
 def new_releases():
@@ -101,9 +86,6 @@ def new_releases():
     print ('new_releases : ', new_releases) 
     # Return the list of new releases
     return jsonify(new_releases)
-
-#------------------------------------
-
   
 @app.route('/recommend', methods=['GET','POST'])
 def recommend():
@@ -139,7 +121,6 @@ def recommend():
     #    recommend_ =  sp.recommendations(seed_artists = [artist_id],seed_genres=fix_genre_dict(current_genre_dict),country='FR',limit=5)
     #else:
     #    pass 
-
     print (' 1) current request_get_status  : ', jsonify(request.get_json()) )
     print (' 2) current request_get_json : ',  (request.__dict__) )
     print (' 3) current genres  (ImmutableMultiDict) : ',  current_genre)
@@ -147,29 +128,7 @@ def recommend():
     print (' 5) fixed current genres  (dict) : ',  fix_genre_dict(current_genre_dict))
     return jsonify(recommend_['tracks'])
 
-
-#------------------------------------
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
-#------------------------------------
-
-
-@app.errorhandler(500)
-def internal_server_error(e):
-    return render_template('500.html'), 500
-
-
-#------------------------------------
-
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=7777)
-
-
-
 
     
