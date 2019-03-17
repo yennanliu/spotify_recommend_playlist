@@ -1,10 +1,7 @@
 #!/bin/sh
-
-
 echo '#####################'
 echo 'INSTALL NEEDED LIBRARY'
 echo '#####################'
-
 
 # check if is python 3 
 echo '1) Check python version ... '
@@ -25,10 +22,3 @@ echo ''
 echo '2) Install library ... '
 echo ''
 pip install flask spotipy pandas 
-
-
-
-
-
-
-
