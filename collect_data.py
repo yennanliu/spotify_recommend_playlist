@@ -1,14 +1,4 @@
-
 # python 3 
-
-
-"""
-
-modify from 
-https://github.com/smyrbdr/make-your-own-Spotify-playlist-of-playlist-recommendations
-
-"""
-
 import os
 # Spotify API wrapper, documentation here: http://spotipy.readthedocs.io/en/latest/
 import spotipy
@@ -17,16 +7,12 @@ import spotipy.util as util
 from spotipy import oauth2
 import pandas as pd
 import numpy as np
-
-
 # UDF
 from utility import * 
 from load_creds import * 
 
-
 # -------------------------------------------
 # config 
-
 try:
     SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET = get_spotify_client_id_secret() 
 except:
@@ -35,22 +21,22 @@ except:
 else:
     print (' No API key , please set up  via : ')
     print (' https://developer.spotify.com/dashboard/applications ')
-
-
 client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-
-
 cid =' ' # Client ID; copy this from your app 
 secret = ' ' # Client Secret; copy this from your app
 username = ' ' # Your Spotify username
+# -------------------------------------------
 
+
+##########################################################################################
+#modify from 
+#https://github.com/smyrbdr/make-your-own-Spotify-playlist-of-playlist-recommendations
+##########################################################################################
 
 # -------------------------------------------
 # main func 
-
 #Create a dataframe of your playlist including tracks' names and audio features
-
 def collect_train_V1():
 	sourcePlaylistID = '1fCOovfyVaAbUiPlqtRF09'
 	sourcePlaylist = sp.user_playlist(username, sourcePlaylistID);
@@ -74,7 +60,6 @@ def collect_train_V1():
 	playlist_df = pd.DataFrame(features, index = track_names)
 	print ('playlist_df train_df : ', playlist_df.head())
 	return playlist_df
-
 
 def collect_test_V1(playlist_df):
 	# Now build your test set;
@@ -102,11 +87,7 @@ def collect_test_V1(playlist_df):
 	print ('rec_playlist_df test_df : ', rec_playlist_df.head())
 	return rec_playlist_df
 
-
 # -------------------------------------------
-
-
-
 if __name__ == '__main__':
 	df_train = collect_train_V1()
 	df_test = collect_test_V1(df_train)
@@ -114,13 +95,3 @@ if __name__ == '__main__':
 	print ('df_train :', df_train.head())
 	print ('df_train :', df_train.head())
 	print ('='*70)
-
-
-
-
-
-
-
-
-
-
