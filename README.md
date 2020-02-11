@@ -5,22 +5,19 @@
 - Team discusisson doc 
 	- [google sheet](https://docs.google.com/spreadsheets/d/1m8XjTOgJBmAV6EVHB09P1V2q8DbRAM4FRK8jtWBG7W8/edit?usp=sharing)
 
+## Intro
+- Build an UI grab user's song taste via `Tinder like` process, then train a ML model from user taste data, then predict the potentail users liked songs via the classification from ML model, finally call the `Spotify recommendation API` then get the playlist of the songs that fit such user classification
+
 ## Architecture
 <p align="center"><img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/pic/architecture.svg" width="800" height="400"></p>
-
-<img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref/app_1.png" width="800" height="400">
-<img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref/app_2.png" width="800" height="400">
-
  
-## 0) IDEA 
-
-- Build a prior detector catch users' taste (ML model), pass the predict output as parameter to Spotify recommendation API then get the Spotify recommended playlist 
+- Architecture Idea 
 
 ```
 User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> recommended_playlist ---> Web_UI 
 ```
 
-## 1) FILE STRUCTURE 
+## FILE STRUCTURE 
 
 ```
 ├── [1.8k]  README.md
@@ -37,9 +34,12 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 
 ```
 
-## 2) QUICK START
+## QUICK START
 
 #### Prerequisites
+
+<details>
+<summary>Prerequisites</summary>
 
 - Step 1 
 	- Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET 
@@ -54,26 +54,38 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 	- Execute the following commands (Method 1)then run the web APP locally 
 	- The APP UI should be available at : http://127.0.0.1:7777/
 
-#### Method 1) Run directly  
+</details>
+
+#### Method 1) Run (manually)  
 
 - [quick start](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/quick_start.md)
 
 
-#### Method 2) Run via Docker 
+#### Method 2) Run (docker)
 
 - [quick start docker](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/quick_start_docker.md)
 
 
-## 3) TECH
+## TECH
 - Backend : Python3 flask, spotipy, sklearn 
 - Frontend : Javascript, Ajax, HTML, CSS, Bootstrap 
 
-## 4)REF 
+## REF 
+
+<details>
+<summary>REF</summary>
+
 - [ref.md](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref.md) 
 - Inspired by 
 	- https://nelson.glitch.me/#
+</details>
 
-## 5) TODO
+## TODO
+
+<details>
+<summary>TODO</summary>
+
 - Fix JS Ajax call API part
 - Fix frontend layout 
 - Dockerize the project  
+</details>
