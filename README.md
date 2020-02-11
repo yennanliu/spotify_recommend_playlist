@@ -1,7 +1,9 @@
-# spotify_recommend_playlist
+# Spotify_Recommend_Playlist
 
 [![Build Status](https://travis-ci.org/yennanliu/spotify_recommend_playlist.svg?branch=master)](https://travis-ci.org/yennanliu/spotify_recommend_playlist)
 
+- Team discusisson doc 
+	- [google sheet](https://docs.google.com/spreadsheets/d/1m8XjTOgJBmAV6EVHB09P1V2q8DbRAM4FRK8jtWBG7W8/edit?usp=sharing)
 
 ## Architecture
 <p align="center"><img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/pic/architecture.svg" width="800" height="400"></p>
@@ -15,10 +17,7 @@
 - Build a prior detector catch users' taste (ML model), pass the predict output as parameter to Spotify recommendation API then get the Spotify recommended playlist 
 
 ```
-
 User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> recommended_playlist ---> Web_UI 
-
-
 ```
 
 ## 1) FILE STRUCTURE 
@@ -49,15 +48,11 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 - Step 2 
 	- Create an APP at developer page with created SPOTIPY_CLIENT_ID
 	- https://developer.spotify.com
-
 - Step 3 
-	- Update the Spotify credential (SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
-	- [.creds.yml](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/.creds.yml) 
-
+	- Rename [.creds.yml.dev](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/.creds.yml.dev) to `.creds.yml` and update the Spotify credential (SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
 - Step 4
 	- Execute the following commands (Method 1)then run the web APP locally 
 	- The APP UI should be available at : http://127.0.0.1:7777/
-
 
 #### Method 1) Run directly  
 
@@ -73,16 +68,12 @@ User rate the songs ---> detector ---> Model_training  ---> Spotify_ML_API ---> 
 - Backend : Python3 flask, spotipy, sklearn 
 - Frontend : Javascript, Ajax, HTML, CSS, Bootstrap 
 
+## 4)REF 
+- [ref.md](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref.md) 
+- Inspired by 
+	- https://nelson.glitch.me/#
 
-## 4) INSPIRED BY 
-- https://nelson.glitch.me/#
-
-
-## 5)REF 
-- [reference](https://github.com/yennanliu/spotify_recommend_playlist/blob/master/ref.md) 
-
-
-## 6) TODO
+## 5) TODO
 - Fix JS Ajax call API part
 - Fix frontend layout 
 - Dockerize the project  
