@@ -1,0 +1,6 @@
+#Get the spotify SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET
+#https://developer.spotify.com/dashboard/applications
+
+spotify_api:
+  SPOTIPY_CLIENT_ID: <SPOTIPY_CLIENT_ID> 
+  SPOTIPY_CLIENT_SECRET: <SPOTIPY_CLIENT_SECRET>
