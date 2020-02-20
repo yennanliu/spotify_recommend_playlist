@@ -11,7 +11,7 @@
 ## Architecture
 <p align="center"><img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/pic/architecture.svg" width="800" height="400"></p>
 
-<p align="center"><img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/pic/doc/pic/information_arch.svg" width="800" height="400"></p>
+<p align="center"><img src ="https://github.com/yennanliu/spotify_recommend_playlist/blob/master/doc/pic/information_arch.svg" width="800" height="400"></p>
 
 - Architecture Idea 
 	- dev 
